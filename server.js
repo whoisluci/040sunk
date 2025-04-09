@@ -25,6 +25,24 @@ function generateClientID() {
   return uuid;
 }
 
+function handleHTTPRequest(rqst) {
+    const pathname = new URL(rqst.url).pathname;
+
+    if (pathname.startsWith("/media")) {
+        return serveDir(rqst, { fsRoot: "media", urlRoot: "media" });
+    } else if (pathname.startsWith("/start")) {
+        return serveDir(rqst, { fsRoot: "start", urlRoot: "start" });
+    } else if (pathname.startsWith("/app")) {
+        return serveDir(rqst, { fsRoot: "app", urlRoot: "app"});
+    } else if (pathname.startsWith("/public")) {
+        return serveDir(rqst, { fsRoot: "public", urlRoot: "public"})
+    } else if (pathname === "/debug") {
+        return new Response(JSON.stringify(STATE.rooms));
+    }
+
+    return serveFile(rqst, "./index.html"); 
+}
+
 const STATE = {
     "clients": [],
     "clientID": null,
