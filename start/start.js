@@ -1,4 +1,4 @@
-function renderLandingPage(parentID) {
+export function renderLandingPage(parentID) {
     const logoDiv = document.createElement('div');
     logoDiv.id = 'logoDiv';
     document.querySelect(parentID).appendChild(logoDiv);
