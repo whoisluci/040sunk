@@ -24,3 +24,41 @@ function generateClientID() {
 
   return uuid;
 }
+
+const STATE = {
+    "clients": [],
+    "clientID": null,
+    /* ändra om det behövs */
+};
+
+/*                                      SERVER                                                 */
+Deno.serve( {
+    port: 8888,
+    handler: (rqst) => {
+  
+        if (rqst.headers.get("upgrade") != "websocket"){
+        return handleHTTPRequest(rqst);
+        }
+
+        const { socket, response } = Deno.upgradeWebSocket(rqst);
+        
+        socket.addEventListener("open", async () => {
+            STATE.clientID = generateClientID();
+            
+            STATE.clients.push({
+                "id": STATE.clientID,
+                "connection": socket
+            });
+        });
+
+        socket.addEventListener("close", (event) => {
+            console.log(`[SERVER]: Disconnect :: Goodbye ${STATE.clientID}`);
+        });
+
+        socket.addEventListener("error", (error) => {
+            console.log(`[SERVER]: Error ${error}`);
+        });
+
+        return response;
+    }
+});
