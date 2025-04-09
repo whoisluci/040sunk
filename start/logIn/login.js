@@ -1,6 +1,6 @@
 function renderLogIn (parentID) {
     /* const header = rendera header
-    document.querySelect(parentID).appendChild(header); */
+    document.querySelector(parentID).appendChild(header); */
 
     const title = document.createElement('h1');
     document.querySelector(parentID).appendChild(title);

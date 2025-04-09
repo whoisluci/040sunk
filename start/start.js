@@ -1,7 +1,7 @@
 export function renderLandingPage(parentID) {
     const logoDiv = document.createElement('div');
     logoDiv.id = 'logoDiv';
-    document.querySelect(parentID).appendChild(logoDiv);
+    document.querySelector(parentID).appendChild(logoDiv);
 
     const logoImg = document.createElement('img');
     logoImg.id = 'logotype';
@@ -15,7 +15,7 @@ export function renderLandingPage(parentID) {
 
     const bttnDiv = document.createElement('div');
     bttnDiv.id = 'bttnDiv';
-    document.querySelect(parentID).appendChild(bttnDiv);
+    document.querySelector(parentID).appendChild(bttnDiv);
 
     const registerBttn = document.createElement('button');
     registerBttn.id = 'registerBttn';
