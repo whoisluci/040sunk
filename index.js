@@ -7,6 +7,7 @@ import { renderLandingPage } from "./start/start.js";
 // Dela upp index.js lokalt
 
 renderLandingPage("#wrapper");
+console.log('hej');
 
 const STATE = {
 

@@ -40,6 +40,10 @@ function handleHTTPRequest(rqst) {
         } else if (pathname === "/debug") {
             return new Response(JSON.stringify(STATE.rooms));
         }
+
+        if (pathname === "/index.js") {
+            return serveFile(rqst, "./index.js");
+        }
     
         return serveFile(rqst, "./index.html"); 
     } catch (error) {
