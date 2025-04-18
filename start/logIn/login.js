@@ -1,4 +1,13 @@
-function renderLogIn (parentID) {
+import { STATE } from "../../index.js";
+import { PubSub } from "../../utils/pubSub.js";
+
+PubSub.subscribe({
+    event: 'renderLogIn',
+    listener: renderLogIn
+});
+
+export function renderLogIn (parentID) {
+    document.querySelector(parentID).innerHTML = ``;
     /* const header = rendera header
     document.querySelector(parentID).appendChild(header); */
 
@@ -18,13 +27,23 @@ function renderLogIn (parentID) {
         <input type='password' name='lösenord' id='password'/>
     `;
 
-    const button = createElement('button');
+    const button = document.createElement('button');
     document.querySelector(parentID).appendChild(button);
     button.id = 'logInBttn';
     button.innerText = 'Logga in';
 
     button.addEventListener('click', () => {
-        /* auto login */
-        /* PubSub => omdirigera till spelet */
+        const name = document.querySelector('#name').value;
+        const password = document.querySelector('#password').value;
+
+        const data = {
+            event: 'logIn',
+            data: {
+                name: name,
+                password: password
+            }
+        };
+
+        STATE.socket.send(JSON.stringify(data));
     });
 }

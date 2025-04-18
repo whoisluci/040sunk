@@ -1,4 +1,14 @@
+import { STATE } from "../../index.js";
+import { PubSub } from "../../utils/pubSub.js";
+
+PubSub.subscribe({
+    event: 'renderRegister',
+    listener: renderRegister
+});
+
 function renderRegister(parentID) {
+    document.querySelector(parentID).innerHTML = ``;
+    
     /* const header = renderHeader(parentID);
     document.querySelector(parentID).appendChild(header); */
 
@@ -16,8 +26,8 @@ function renderRegister(parentID) {
         <input type='text' name='namn' id='name'/>
         <label for='lösenord'>Lösenord</label>
         <input type='password' name='lösenord' id='password'/>
-        <label for='confLösenord>Bekräfta lösenord</label>
-        <input type='password' name='confLösenord id='confPassword'/>
+        <label for='confLösenord'>Bekräfta lösenord</label>
+        <input type='password' name='confLösenord' id='confPassword'/>
     `;
 
     const button = document.createElement('button');
@@ -26,7 +36,26 @@ function renderRegister(parentID) {
     button.innerText = 'Registrera dig';
 
     button.addEventListener('click', () => {
-        /* auto login */
-        /* PubSub => omdirigera till spelet */
+        let name = document.querySelector('#name').value;
+        let password = document.querySelector('#password').value;
+        let confPassword = document.querySelector('#confPassword').value;
+
+        console.log(password, confPassword)
+
+        if (password === confPassword) {
+            const data = {
+                event: 'register',
+                data: {
+                    clientID: STATE.clientID,
+                    name: name,
+                    password: password
+                }
+            };
+
+            STATE.socket.send(JSON.stringify(data));
+            
+        } else {
+            window.alert('Lösenorden matchar inte. Testa igen.');
+        }
     });
 }

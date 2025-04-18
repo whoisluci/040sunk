@@ -1,3 +1,7 @@
+import { PubSub } from "../utils/pubSub.js";
+import * as renderRegister from './register/register.js';
+import * as renderLogIn from './logIn/login.js';
+
 export function renderLandingPage(parentID) {
     const logoDiv = document.createElement('div');
     logoDiv.id = 'logoDiv';
@@ -30,12 +34,16 @@ export function renderLandingPage(parentID) {
     loginBttn.innerText = 'Logga in';
 
     registerBttn.addEventListener('click', () => {
-        /* omdirigera till registrering */
+       PubSub.publish({
+            event: 'renderRegister',
+            detail: '#wrapper'
+        });
     });
 
     loginBttn.addEventListener('click', () => {
-        /* omdirigera till inlogging */ 
-    })
+        PubSub.publish({
+            event: 'renderLogIn',
+            detail: '#wrapper'
+        });
+    });
 }
-
-/* PubSub!!!!! */
