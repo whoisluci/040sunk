@@ -7,6 +7,16 @@ function send(socket, event, data) {
   socket.send(JSON.stringify({ event, data }));
 }
 
+function broadcastToTeam(teamID, event, data) {
+    for (const team of STATE.teams) {
+      if (team.id === teamID) {
+        for (const player of room.players) {
+          send(player.connection, event, data);
+        }
+      }
+    }
+}
+
 function generateClientID() {
   let d = new Date().getTime();
 	
@@ -149,14 +159,14 @@ async function handleCreateTeam(data) {
     const teamCreator = await getUserFromToken(data.token);
     const teamsJSON = await Deno.readTextFile('api/teams.json');
     const teams = JSON.parse(teamsJSON);
-    const players = [teamCreator.id];
 
     let id = generateTeamID();
 
     const createdTeam = {
         id: id,
         teamName: data.teamName,
-        players: players
+        creator: teamCreator.id,
+        players: []
     };
 
     console.log(createdTeam);
@@ -188,6 +198,24 @@ async function handleJoinTeam(data) {
     const updatedTeams = await Deno.writeTextFile('api/teams.json', JSON.stringify(teams, null, 2));
 
     return joinedTeam;
+}
+
+async function getTeamsFromUser(user) {
+    const teamsArr = user.teams;
+    const userTeams = [];
+    
+    const teamsJSON = await Deno.readTextFile('api/teams.json');
+    const teams = JSON.parse(teamsJSON);
+
+    for (let team of teamsArr) {
+        for (let t of teams) {
+            if (team === t.id) {
+                userTeams.push(t);
+            }
+        }
+    }
+
+    return userTeams;
 }
 
 const STATE = {
@@ -244,9 +272,9 @@ Deno.serve( {
                     const token = data.token;
 
                     const user = await getUserFromToken(token);
-                    console.log('hejehj');
+                    const userTeams = await getTeamsFromUser(user);
                     
-                    send(socket, 'loadTeams', {teams: user.teams});
+                    send(socket, 'loadTeams', {teams: userTeams});
                     break;
                 }
 

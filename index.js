@@ -1,11 +1,13 @@
 import { PubSub } from "./utils/pubSub.js";
 import { renderLandingPage } from "./start/start.js";
-import * as renderTeamsPage from "./app/teams.js";
+import { renderTeamsPage } from "./app/teams.js";
+import { renderUserTeams } from './app/teams.js';
 
 export const STATE = {
     'client': null,
     'socket': null,
     'team': null,
+    'teamID': null
 };
 
 export const token = localStorage.getItem("token");
@@ -63,16 +65,28 @@ globalThis.addEventListener("load", async () => {
                     });
                 }
             }
-
             case 'loadTeams': {
                 const teams = msg.data.teams;
-                console.log(teams);
-            }
 
+                PubSub.publish({
+                    event: 'renderUserTeams',
+                    detail: teams
+                });
+            }
             case 'createTeam': {
                 const data = msg.data;
                 STATE.team = data;
-                
+
+                PubSub.publish({
+                    event: 'renderWaitingRoom',
+                    detail: '#wrapper'
+                });
+            }
+            case 'joinTeam': {
+                STATE.teamID = msg.data.team.id;
+                STATE.team = msg.data.team;
+
+                console.log(`[CLIENT]: Joined room ${STATE.roomID} successfully`);
             }
         }
     });

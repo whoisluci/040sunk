@@ -61,9 +61,24 @@ export function renderTeamsPage (parentID) {
     }
 
     STATE.socket.send(JSON.stringify(data));
+    
+}
 
-    console.log(data);
-    
-    
-    /* loopa igenom användarens lag och appenda till div:en */ 
+export function renderUserTeams(teams) {
+    const teamsDiv = document.querySelector('teamsDiv');
+
+    for (let team of teams) {
+        const teamDiv = document.createElement('div');
+        teamDiv.id = `${team.teamName}`;
+        teamsDiv.appendChild(teamDiv);
+
+        const teamImg = document.createElement('img');
+        teamImg.id = 'teamImg';
+        teamImg.src = '';
+        teamDiv.append(teamImg);
+
+        const teamName = document.createElement('h5');
+        teamName.id = 'teamName';
+        teamDiv.append(teamName)
+    }
 }

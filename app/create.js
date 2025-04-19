@@ -48,10 +48,5 @@ function renderCreate (parentID) {
         };
 
         STATE.socket.send(JSON.stringify(data));
-
-        // PubSub.publish({
-        //     event: '',
-        //     detail: '#wrapper'
-        // });
     });
 }
