@@ -175,6 +175,9 @@ async function getUserFromToken(clientToken) {
         
         token = await generateToken(user);
 
+        console.log(user);
+        
+
         console.log(clientToken, '1');
         console.log(token, '2');
         
