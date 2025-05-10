@@ -56,7 +56,7 @@ globalThis.addEventListener("load", async () => {
                 const token = msg.data.token;
             
                 if (token !== null && token !== '' && token !== undefined) {
-                    localStorage.setItem('token', token);
+                    sessionStorage.setItem('token', token);
                     STATE.user = msg.data.user;
 
                     PubSub.publish({
@@ -69,7 +69,7 @@ globalThis.addEventListener("load", async () => {
                 const token = msg.data.token;
 
                 if (token !== null && token !== '' && token !== undefined) { 
-                    localStorage.setItem('token', token);
+                    sessionStorage.setItem('token', token);
                     STATE.user = msg.data.user;
 
                     PubSub.publish({
