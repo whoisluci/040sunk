@@ -281,6 +281,9 @@ async function handleJoinTeam(data) {
 
     await kv.set(['teams'], teams);
 
+    console.log(joinedTeam);
+    
+
     let userClient = STATE.clients.find(client => client.id === STATE.clientID);
 
     if (userClient) {
