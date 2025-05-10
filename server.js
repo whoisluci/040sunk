@@ -167,6 +167,7 @@ async function getUserFromToken(clientToken) {
     const kv = await Deno.openKv();
     const usersKv = await kv.get(['users']);
     const users = usersKv.value;
+    console.log( users );
     
     let token;
     let userFromToken;
