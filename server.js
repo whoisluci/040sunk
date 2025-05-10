@@ -341,10 +341,10 @@ async function handleStartGame () {
     const barsJSON = await Deno.readTextFile('./api/bars.json');
     const barsDB = await JSON.parse(barsJSON);
     
-    console.log({ characters: charactersDB, challenges: challengesDB, bars: barsDB });
+    const data = { characters: charactersDB, challenges: challengesDB, bars: barsDB };
     
 
-    return { characters: charactersDB, challenges: challengesDB, bars: barsDB };
+    return { data };
 
     for (let team of STATE.teams) {
         if (team.id === teamID) {
