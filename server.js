@@ -272,7 +272,7 @@ async function handleJoinTeam(data) {
 
     for (let team of teams) {
         if (team.id === teamCode) {
-            team.players.push(user.id);
+            team.players.push(STATE.clientID);
             joinedTeam = team;
             break;
         }
@@ -441,7 +441,7 @@ Deno.serve( {
                     const team = handleJoinTeam(data);
 
                     send(socket, 'joinTeam', {team: team});
-                    broadcastToTeam(data.code, 'joinTeam', {newPlayer: STATE.clients.id[`${STATE.clientID}`]} );
+                    broadcastToTeam(data.code, 'joinTeam', {newPlayer: STATE.clientID});
                 }
 
                 case 'startGame': {
