@@ -72,6 +72,17 @@ export function renderTeamsPage (parentID) {
     
         STATE.socket.send(JSON.stringify(data));
     }
+
+    const startBttn = document.createElement('button');
+    startBttn.id = 'startGame';
+    startBttn.innerText = 'START GAME';
+
+    startBttn.addEventListener('click', () => {
+        const data = {
+            event: 'startGame',
+            data 
+        }
+    });
 }
 
 export function renderUserTeams(teams) {

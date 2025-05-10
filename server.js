@@ -331,7 +331,7 @@ async function getTeamsFromUser(user) {
     return userTeams;
 }
 
-async function handleStartGame (teamID) {
+async function handleStartGame () {
     const charactersJSON = await Deno.readTextFile('./api/characters.json');
     const charactersDB = await JSON.parse(charactersJSON);
 
@@ -340,6 +340,8 @@ async function handleStartGame (teamID) {
 
     const barsJSON = await Deno.readTextFile('./api/bars.json');
     const barsDB = await JSON.parse(barsJSON);
+
+    return { characters: charactersDB, challenges: challengesDB, bars: barsDB };
 
     for (let team of STATE.teams) {
         if (team.id === teamID) {
@@ -447,7 +449,7 @@ Deno.serve( {
 
                 case 'startGame': {
                     const teamID = msg.data.teamID;
-                    const data = handleStartGame(teamID);
+                    const data = handleStartGame();
 
                     broadcastToTeam(teamID, 'startGame', data);
                 }
