@@ -399,6 +399,9 @@ Deno.serve( {
                 case 'loadTeams': {
                     const data = msg.data;
                     const token = data.token;
+
+                    console.log(token, 'token');
+                    
                     
                     const user = await getUserFromToken(token);
                     console.log(user);
