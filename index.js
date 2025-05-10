@@ -106,6 +106,8 @@ globalThis.addEventListener("load", async () => {
             case 'joinTeam': {
                 STATE.teamID = msg.data.team.id;
                 STATE.team = msg.data.team;
+                console.log(msg.data);
+                
                 
                 let name;
 
