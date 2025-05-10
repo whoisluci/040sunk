@@ -122,6 +122,8 @@ async function renderCharSelection(parentID){
         charImg.src = char.avatarPath;
         charDiv.append(charImg);
 
+        charDiv.classList.add('char');
+
         /* kolla om någon progress finns */
         /* om det finns, kolla vilka som e done */
 
