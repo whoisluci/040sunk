@@ -174,6 +174,11 @@ async function getUserFromToken(clientToken) {
     for (let user of users) {
         
         token = await generateToken(user);
+
+        console.log(clientToken, '1');
+        console.log(token, '2');
+        
+        
         
         if (token === clientToken) {
             userFromToken = user;
@@ -400,9 +405,6 @@ Deno.serve( {
                     const data = msg.data;
                     const token = data.token;
 
-                    console.log(token, 'token');
-                    
-                    
                     const user = await getUserFromToken(token);
                     console.log(user);
                     
