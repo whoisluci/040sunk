@@ -121,6 +121,7 @@ async function renderCharSelection(parentID){
         const charImg = document.createElement('img');
         charImg.src = char.avatarPath;
         charDiv.append(charImg);
+        charImg.style.height = '200px';
 
         charDiv.classList.add('char');
 
