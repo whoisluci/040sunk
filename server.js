@@ -185,7 +185,7 @@ async function getUserFromToken(clientToken) {
 
 async function handleCreateTeam(data) {
     const teamCreator = await getUserFromToken(data.token);
-    const kv = Deno.openKv();
+    const kv = await Deno.openKv();
     // const teamsJSON = await Deno.readTextFile('api/teams.json');
     // const teams = JSON.parse(teamsJSON);
 
