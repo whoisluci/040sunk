@@ -11,7 +11,10 @@ export const STATE = {
     'socket': null,
     'user': null,
     'team': null,
-    'teamID': null
+    'teamID': null,
+    'characters': null,
+    'challenges': null,
+    'bars': null
 };
 
 export const token = localStorage.getItem("token");
@@ -135,11 +138,11 @@ globalThis.addEventListener("load", async () => {
 
             case 'startGame': {
                 // STATE.team = msg.data.team;
-                STATE.characters = msg.data.characters;
+                STATE.characters = msg.data['characters'];
                 console.log(msg.data);
                 
-                STATE.challenges = msg.data.challenges;
-                STATE.bars = msg.data.bars;
+                STATE.challenges = msg.data['challenges'];
+                STATE.bars = msg.data['bars'];
 
                 console.log(`[CLIENT]: Game has started .`);
 
