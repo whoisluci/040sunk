@@ -108,6 +108,8 @@ globalThis.addEventListener("load", async () => {
                 STATE.team = msg.data.team;
 
                 console.log(`[CLIENT]: Joined room ${STATE.roomID} successfully`);
+
+                
             }
 
             case 'startGame': {

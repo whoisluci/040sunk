@@ -1,4 +1,5 @@
 import { PubSub } from "../utils/pubSub.js";
+import { STATE } from "../index.js";
 
 PubSub.subscribe({
     event: 'joinTeam',
