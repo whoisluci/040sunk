@@ -62,23 +62,35 @@ function renderCreate (parentID) {
             return;
         }
 
+        if (teamImg) {
+            const base64String = PubSub.publish({
+                event: 'convertImg',
+                detail: teamImg
+            });
+            
+            localStorage.setItem('teamImg', base64String);
+            console.log("Image saved to localStorage");
+        } else {
+            console.log("No file selected.");
+        }
+
         const imgArrayBuffer = await teamImg.arrayBuffer();
+
+        const imgData = {
+            fileName: teamImg.name,
+            fileType: teamImg.type,
+            fileData: Array.from(new Uint8Array(imgArrayBuffer))
+        };
 
         const data = {
             event: 'createTeam',
             data: {
                 token: localStorage.getItem('token'),
                 teamName: teamName,
-                teamImg: {
-                    fileName: teamImg.name,
-                    fileType: teamImg.type,
-                    fileData: Array.from(new Uint8Array(imgArrayBuffer))
-                }
             }
         };
 
         STATE.socket.send(JSON.stringify(data));
         console.log(STATE.socket);
-        
     });
 }

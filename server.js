@@ -181,18 +181,22 @@ async function getUserFromToken(clientToken) {
 
 async function handleCreateTeam(data) {
     const teamCreator = await getUserFromToken(data.token);
-    const teamsJSON = await Deno.readTextFile('api/teams.json');
-    const teams = JSON.parse(teamsJSON);
+    const kv = Deno.openKv();
+    // const teamsJSON = await Deno.readTextFile('api/teams.json');
+    // const teams = JSON.parse(teamsJSON);
 
-    const fileData = new Uint8Array(data.teamImg.fileData);
-    const fileType = data.teamImg.fileType;
-    let ext = fileType.split('/')[1];
+    const teamsKv = await kv.get(['teams']);
+    const teams = teamsKv.value || [];
+
+    // const fileData = new Uint8Array(data.teamImg.fileData);
+    // const fileType = data.teamImg.fileType;
+    // let ext = fileType.split('/')[1];
 
     console.log(`Team created: ${data.teamName}`);
-    console.log(`Image recieved: ${data.teamImg.fileName} (${data.teamImg.fileData})`);
+    // console.log(`Image recieved: ${data.teamImg.fileName} (${data.teamImg.fileData})`);
     
-    await Deno.mkdir('./media/teamPics', {recursive: true});
-    await Deno.writeFile(`./media/teamPics/${data.teamName}.${ext}`, fileData);
+    // await Deno.mkdir('./media/teamPics', {recursive: true});
+    // await Deno.writeFile(`./media/teamPics/${data.teamName}.${ext}`, fileData);
 
     let id = generateTeamID();
 
@@ -203,11 +207,10 @@ async function handleCreateTeam(data) {
         teamName: data.teamName,
         creator: teamCreator.id,
         players: [teamCreator.id],
-        image: ''
     };
 
     teams.push(createdTeam);
-    const updatedTeams = await Deno.writeTextFile('api/teams.json', JSON.stringify(teams, null, 2));
+    const updatedTeams = await kv.set(['teams'], teams);
 
     let creatorClient;
 
@@ -234,19 +237,29 @@ async function handleJoinTeam(data) {
     const teamCode = data.code; 
     const user = await getUserFromToken(token);
 
-    const teamsJSON = await Deno.readTextFile('api/teams.json');
-    const teams = JSON.parse(teamsJSON);
+    // const teamsJSON = await Deno.readTextFile('api/teams.json');
+    // const teams = JSON.parse(teamsJSON);
+
+    const kv = await Deno.openKv();
+    const teamsKv = await kv.get(['teams']);
+    let teams = teamsKv.value || [];
+
     let joinedTeam;
 
     for (let team of teams) {
         if (team.id === teamCode) {
             team.players.push(user.id);
             joinedTeam = team;
+            break;
         }
 
     }
 
-    const updatedTeams = await Deno.writeTextFile('api/teams.json', JSON.stringify(teams, null, 2));
+    if (!joinedTeam) {
+        return {error: 'Team not found'};
+    }
+
+    const updatedTeams = await kv.set(['teams'], teams);
 
     let userClient;
 
@@ -259,6 +272,7 @@ async function handleJoinTeam(data) {
     for (let team of STATE.teams) {
         if (team.id === teamCode) {
             team.players.push(userClient);
+            break;
         }
     }
 
@@ -266,21 +280,29 @@ async function handleJoinTeam(data) {
 }
 
 async function getTeamsFromUser(user) {
+    const kv = Deno.openKv();
+
     if (user['teams'].length === 0) {
         return user['teams'];
     }
     const teamsArr = await user['teams'];
-
     let userTeams = [];
     
-    const teamsJSON = await Deno.readTextFile('api/teams.json');
-    const teams = JSON.parse(teamsJSON);
+    // const teamsJSON = await Deno.readTextFile('api/teams.json');
+    // const teams = JSON.parse(teamsJSON);
 
-    for (let team of teamsArr) {
-        for (let t of teams) {
-            if (team === t.id) {
-                userTeams.push(t);
-            }
+    const teamsKv = await kv.get(['teams']);
+    if (teamsKv) {
+        return [];
+    }
+
+    const teams = teamsKv.value;
+
+
+    for (let id of teamsArr) {
+        const team = teams.find((t) => t.id === id);
+        if (team) {
+            userTeams.push(team);
         }
     }
 
