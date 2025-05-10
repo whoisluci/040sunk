@@ -167,8 +167,7 @@ async function getUserFromToken(clientToken) {
     const kv = await Deno.openKv();
     const usersKv = await kv.get(['users']);
     const users = usersKv.value;
-    console.log( users );
-    
+
     let token;
     let userFromToken;
     
@@ -176,13 +175,10 @@ async function getUserFromToken(clientToken) {
         
         token = await generateToken(user);
 
-        console.log(user);
-        
+        console.log(user, 'detta e user');
 
         console.log(clientToken, '1');
         console.log(token, '2');
-        
-        
         
         if (token === clientToken) {
             userFromToken = user;
