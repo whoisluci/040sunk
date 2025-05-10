@@ -77,7 +77,7 @@ export function renderTeamsPage (parentID) {
 export function renderUserTeams(teams) {
     const teamsDiv = document.querySelector('#teamsDiv');
 
-    if (teams.length === 0 || (typeof teams) === 'string')  {
+    if (teams.length === 0 || (typeof teams) === 'string' || teams === undefined)  {
         const text = document.createElement('p');
         text.innerText = 'Du har inga lag:(';
         teamsDiv.append(text);
