@@ -144,13 +144,13 @@ globalThis.addEventListener("load", async () => {
 
                 console.log(`[CLIENT]: Game has started .`);
 
-                console.log(STATE);
+                if (STATE.characters !== null && STATE.challenges !== null && STATE.bars !== null) {
+                    PubSub.publish({
+                        event: 'renderChars',
+                        detail: '#wrapper'
+                    });
+                }
                 
-
-                PubSub.publish({
-                    event: 'renderChars',
-                    detail: '#wrapper'
-                });
             }
         }
     });
