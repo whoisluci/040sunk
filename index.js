@@ -138,13 +138,14 @@ globalThis.addEventListener("load", async () => {
 
             case 'startGame': {
                 // STATE.team = msg.data.team;
-                STATE.characters = await msg.data['characters'];
-                console.log(msg.data);
-                
+                STATE.characters = await msg.data['characters'];                
                 STATE.challenges = await msg.data['challenges'];
                 STATE.bars = await msg.data['bars'];
 
                 console.log(`[CLIENT]: Game has started .`);
+
+                console.log(STATE);
+                
 
                 PubSub.publish({
                     event: 'renderChars',
