@@ -1,0 +1,217 @@
+[
+  {
+    "id": "fregatt_1",
+    "question": "Vad är en Fregatt?",
+    "type": "Knowledge",
+    "icon": "fregatt_image",
+    "options": [
+      "En gammal krigsbåt med tre master",
+      "En fiskebåt med en mast",
+      "En segelbåt med två master"
+    ]
+  },
+  {
+    "id": "fregatt_2",
+    "question": "Det finns en fregattmodell här, gå och kika på den. Vet ni vad modellen heter och från vilket land kommer den ifrån?",
+    "type": "Knowledge",
+    "icon": "fregatt_image",
+    "answer": "Modellen heter Sofia Amalia och den kommer ifrån Danmark."
+  },
+  {
+    "id": "fregatt_3",
+    "question": "Fregatten gjordes om till en annan verksamhet och blev sedan Fregatten igen. Vad hette den andra verksamheten?",
+    "type": "General Knowledge",
+    "icon": "pizza",
+    "options": [
+      "Sullarp",
+      "Rimini",
+      "Värnhemmet",
+      "Kowalskis"
+    ]
+  },
+  {
+    "id": "fregatt_4",
+    "question": "Vilket år blev Fregatten, Fregatten igen?",
+    "type": "Knowledge",
+    "icon": "fregatt_image",
+    "answer": "1991"
+  },
+  {
+    "id": "fregatt_5",
+    "question": "Ägaren av Fregatten öppnar puben på förmiddagen och har passbyte kl 17:00. Från vilken stad kommer ägaren ifrån? Från vilken stad kommer han som byter av ägaren ifrån?",
+    "type": "Bonus/Social",
+    "icon": "teddy_photo",
+    "answers": [
+      "Warzawa - Teddy är härifrån",
+      "Łódž - Mannen som byter av Teddy är härifrån"
+    ]
+  },
+  {
+    "id": "fregatt_6",
+    "question": "Fregatten blir omnämnd av en stor svensk artist i en av sina låtar. Vem är artisten?",
+    "type": "Entertainment",
+    "icon": "music_notes",
+    "options": [
+      "Håkan Hellström",
+      "Seinabo Sey",
+      "Joakim Thåström",
+      "Kal P. Dal"
+    ]
+  },
+  {
+    "id": "fregatt_7",
+    "question": "Vad ljuder på Fregatten en kvart innan stängning?",
+    "type": "Entertainment",
+    "icon": "close_sign",
+    "answer": "Skeppsklocka"
+  },
+  {
+    "id": "fregatt_8",
+    "question": "Vilken öl säljer bäst på Fregatten? Och var kommer denna ifrån?",
+    "type": "Social/General Knowledge",
+    "icon": "beer_bottle",
+    "answer": "Zywiec, Polen."
+  },
+  {
+    "id": "fregatt_9",
+    "question": "Det finns en bild som visar baren när Fregatten först öppnades. Vilket år är bilden ifrån?",
+    "type": "Historical",
+    "icon": "frimark_image",
+    "answer": "1963"
+  },
+  {
+    "id": "fregatt_10",
+    "question": "Nära baren finns det en samling på olika sorters halsdukar. Hur många av dessa är polska?",
+    "type": "Social/Entertainment",
+    "icon": "scarf",
+    "answer": "De första fyra halsdukar från vänster är polska"
+  },
+  {
+    "id": "fregatt_11",
+    "question": "Var föredrar stammisen Kent sitta och njuta av eftermiddagen?",
+    "type": "Social",
+    "icon": "star",
+    "answer": "Vid baren åt vänster - nära rodern - bredvid fönstret vid baren"
+  },
+  {
+    "id": "fregatt_12",
+    "question": "Kan ni hitta den populära skate-Grisen teckning här?",
+    "type": "Art",
+    "icon": "skate_grisen",
+    "answer": "JA"
+  },
+  {
+    "id": "fregatt_13",
+    "question": "En gång i tiden var Värnhemstorget en mötesplats för spårvagnslinjerna. I vilket år ersattes spårvagnarna av bussar?",
+    "type": "Historical",
+    "icon": "tram",
+    "options": [
+      "1958",
+      "1971",
+      "1964"
+    ]
+  },
+  {
+    "id": "fregatt_14",
+    "question": "Teddy har tre hattar som ligger uppe i vitrinskåpet vid baren. Vems hatt var den vita hatten och vems hatt var den äldsta?",
+    "type": "Historical",
+    "icon": "white_hat",
+    "answer": "Den vita hörde till en svensk marin och den äldsta hörde till en polsk soldat från andra världskriget."
+  },
+  
+  {
+    "id": "rex_1",
+    "question": "Vad heter Rex Pizzerians ägare och hans fru?",
+    "type": "Social",
+    "icon": "owner_image",
+    "answer": "Houshang och Nurije"
+  },
+  {
+    "id": "rex_2",
+    "question": "Rex Pizzeria är arrangörer för många olika evenemang. Men, vet ni vilket evenemang som är ägarnas favorit?",
+    "type": "Social",
+    "icon": "microphone",
+    "answer": "Stand-up comedy eller Quiz eller Teater"
+  },
+  {
+    "id": "rex_3",
+    "question": "Innan Rex Pizzeria var så stort som det är nu så bedrevs det andra verksamheter i nuvarande lokaler. Vad var det för verksamheter?",
+    "type": "General Knowledge",
+    "icon": "frimark_image",
+    "options": [
+      "En bokaffär & en skivaffär",
+      "En skoaffär & en klädaffär",
+      "En frisörsalong & ett bageri"
+    ]
+  },
+  {
+    "id": "rex_4",
+    "question": "När man beställer en öl i baren så är det lätt att ögonen vandrar iväg mot alla roliga föremål som man möts av. Bakom baren finns ett signerat fotografi föreställande en gammal stor fotbollsspelare som är stammis på Rex. Vad heter fotbollsspelaren och vilket lag spelade han för i denna bild?",
+    "type": "Knowledge",
+    "icon": "frimark_image",
+    "answer": "Robert Prytz, Hellas Verona."
+  },
+  {
+    "id": "rex_5",
+    "question": "Vem valde att ha en dinosaurie som den nya loggan för Rex Pizzerian?",
+    "type": "Social",
+    "icon": "dinosaur",
+    "options": [
+      "Kunderna",
+      "Houshang och Nurije",
+      "Ett av Houshang och Nurijes barn",
+      "Anton Magnusson"
+    ]
+  },
+  {
+    "id": "rex_6",
+    "question": "Vad var Nobeltorget under 70-talet?",
+    "type": "Historical",
+    "icon": "nobeltorget_image",
+    "options": [
+      "En skatepark",
+      "En plaskdamm",
+      "En grönyta/park"
+    ]
+  },
+  {
+    "id": "rex_7",
+    "question": "Vilken öl är ägarens Houshangs favorit?",
+    "type": "Social",
+    "icon": "beer_bottle",
+    "answer": "Tuborg Classic"
+  },
+  {
+    "id": "rex_8",
+    "question": "Stammisen Sandra berättade för er att tåget åkte på Nobelvägen förr i tiden. Vilket år slutade tåget åka på denna väg?",
+    "type": "Historical",
+    "icon": "train",
+    "options": [
+      "1940",
+      "1950",
+      "1960"
+    ]
+  },
+  {
+    "id": "rex_9",
+    "question": "Hur stor var Rex Pizzeria när den öppnades 1999?",
+    "type": "General Knowledge",
+    "icon": "question_mark",
+    "options": [
+      "Den bestod av baren- och pizzeriadelen",
+      "Den bestod av pizzeriadelen",
+      "Den bestod av baren-, biljard- och pizzeriadelen"
+    ]
+  },
+  {
+    "id": "rex_10",
+    "question": "Vilket Malmöband hade sin debutspelning i Rex källare?",
+    "type": "General Knowledge",
+    "icon": "band_image",
+    "options": [
+      "Neon Chorus",
+      "Bob Frank & The Lemon Curds",
+      "Plain Chachalaca"
+    ]
+  }
+]
