@@ -1,6 +1,6 @@
 import { PubSub } from "../utils/pubSub.js";
 import { STATE } from "../index.js";
-import * as convertImgToBase64 from '../utils/base64.js';
+import * as convertImg from '../utils/base64.js';
 
 PubSub.subscribe({
     event: 'createTeam',
