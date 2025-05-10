@@ -214,8 +214,8 @@ async function handleCreateTeam(data) {
     const createdTeam = {
         id: id,
         teamName: data.teamName,
-        creator: teamCreator.id,
-        players: [teamCreator.id],
+        creator: STATE.clientID, /* ändra till teamCreator.id */
+        players: [STATE.clientID],
     };
 
     teams.push(createdTeam);
