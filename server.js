@@ -448,10 +448,11 @@ Deno.serve( {
                 }
 
                 case 'startGame': {
-                    const teamID = msg.data.teamID;
+                    // const teamID = msg.data.teamID;
                     const data = handleStartGame();
 
-                    broadcastToTeam(teamID, 'startGame', data);
+                    // broadcastToTeam(teamID, 'startGame', data);
+                    send(socket, 'startGame', data);
                 }
 
                 default: {
