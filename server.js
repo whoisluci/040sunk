@@ -10,7 +10,7 @@ function send(socket, event, data) {
 function broadcastToTeam(teamID, event, data) {
     for (const team of STATE.teams) {
       if (team.id === teamID) {
-        for (const player of room.players) {
+        for (const player of team.players) {
           send(player.connection, event, data);
         }
       }
