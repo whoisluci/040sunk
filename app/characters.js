@@ -9,9 +9,6 @@ PubSub.subscribe({
 function renderCharSelection(parentID){
     document.querySelector(parentID).innerHTML = ``;
 
-    console.log(STATE);
-    
-
     const headline = document.createElement('h2');
     headline.id = 'headline';
     document.querySelector(parentID).append(headline);

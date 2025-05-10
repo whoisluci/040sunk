@@ -134,6 +134,8 @@ globalThis.addEventListener("load", async () => {
                 }
 
                 console.log(`[CLIENT]: Joined room ${STATE.roomID} successfully`);
+
+                break;
             }
 
             case 'startGame': {
@@ -144,13 +146,15 @@ globalThis.addEventListener("load", async () => {
 
                 console.log(`[CLIENT]: Game has started .`);
 
-                if (STATE.characters !== null && STATE.challenges !== null && STATE.bars !== null) {
+                if (STATE.characters && STATE.challenges && STATE.bars) {
                     PubSub.publish({
                         event: 'renderChars',
                         detail: '#wrapper'
-                    });
+                });
+                } else {
+                    setTimeout(checkIfStateIsReady, 100);
                 }
-                
+                break;
             }
         }
     });
