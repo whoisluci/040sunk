@@ -142,7 +142,7 @@ globalThis.addEventListener("load", async () => {
                 console.log(`[CLIENT]: Game has started .`);
 
                 PubSub.publish({
-                    event: 'renderCharacters',
+                    event: 'renderChars',
                     detail: '#wrapper'
                 });
             }
