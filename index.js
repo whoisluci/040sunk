@@ -133,7 +133,7 @@ globalThis.addEventListener("load", async () => {
             }
 
             case 'startGame': {
-                STATE.team = msg.data.team;
+                // STATE.team = msg.data.team;
                 STATE.characters = msg.data.characters;
                 STATE.challenges = msg.data.challenges;
                 STATE.bars = msg.data.bars;
