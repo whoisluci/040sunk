@@ -76,6 +76,7 @@ export function renderTeamsPage (parentID) {
     const startBttn = document.createElement('button');
     startBttn.id = 'startGame';
     startBttn.innerText = 'START GAME';
+    document.querySelector(parentID).append(startBttn);
 
     startBttn.addEventListener('click', () => {
         const data = {
