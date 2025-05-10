@@ -120,6 +120,7 @@ async function renderCharSelection(parentID){
         
         const charImg = document.createElement('img');
         charImg.src = char.avatarPath;
+        charDiv.append(charImg);
 
         /* kolla om någon progress finns */
         /* om det finns, kolla vilka som e done */
