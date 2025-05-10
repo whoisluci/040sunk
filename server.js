@@ -256,7 +256,6 @@ async function handleJoinTeam(data) {
 }
 
 async function getTeamsFromUser(user) {
-    console.log(user);
     if (user['teams'].length === 0) {
         return user['teams'];
     }
@@ -365,7 +364,7 @@ Deno.serve( {
                     const data = msg.data;
                     const token = data.token;
                     
-                    const user = await getUserFromToken(token);                    
+                    const user = await getUserFromToken(token);
                     const userTeams = await getTeamsFromUser(user);
 
 
