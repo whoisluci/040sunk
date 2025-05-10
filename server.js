@@ -340,6 +340,9 @@ async function handleStartGame () {
 
     const barsJSON = await Deno.readTextFile('./api/bars.json');
     const barsDB = await JSON.parse(barsJSON);
+    
+    console.log({ characters: charactersDB, challenges: challengesDB, bars: barsDB });
+    
 
     return { characters: charactersDB, challenges: challengesDB, bars: barsDB };
 
