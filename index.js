@@ -66,7 +66,7 @@ globalThis.addEventListener("load", async () => {
                 }
             }
             case 'logIn': {
-                const token = msg.data;
+                const token = msg.data.token;
 
                 if (token !== null && token !== '' && token !== undefined) { 
                     localStorage.setItem('token', token);
