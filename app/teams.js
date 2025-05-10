@@ -80,8 +80,11 @@ export function renderTeamsPage (parentID) {
 
     startBttn.addEventListener('click', () => {
         const data = {
-            event: 'startGame'
-        }
+            event: 'startGame',
+            data: {
+                token: sessionStorage.getItem('token')
+            }
+        };
 
         STATE.socket.send(JSON.stringify(data));
     });
