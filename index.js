@@ -106,10 +106,20 @@ globalThis.addEventListener("load", async () => {
             case 'joinTeam': {
                 STATE.teamID = msg.data.team.id;
                 STATE.team = msg.data.team;
+                
+                if (STATE.clientID === msg.data.newPlayer) {
+                   PubSub.publish({
+                    event: 'renderWaitingRoom',
+                    detail: '#wrapper'
+                   });
+                } else {
+                    PubSub.publish({
+                        event: 'renderUserName',
+                        detail: `${STATE.user.name}`
+                    });
+                }
 
                 console.log(`[CLIENT]: Joined room ${STATE.roomID} successfully`);
-
-                
             }
 
             case 'startGame': {

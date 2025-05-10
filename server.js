@@ -285,13 +285,15 @@ async function handleJoinTeam(data) {
 
     const updatedTeams = await kv.set(['teams'], teams);
 
-    let userClient;
+    let userClient = {};
 
     for (let client of STATE.clients) {
         if (client.id === STATE.clientID) {
-            userClient = client;
+            userClient['client'] = client;
         }
     }
+
+    userClient['name'] = user.username;
 
     for (let team of STATE.teams) {
         if (team.id === teamCode) {
@@ -441,7 +443,7 @@ Deno.serve( {
                     const team = handleJoinTeam(data);
 
                     send(socket, 'joinTeam', {team: team});
-                    broadcastToTeam(data.code, 'joinTeam', {newPlayer: STATE.clientID});
+                    broadcastToTeam(data.code, 'joinTeam', {newPlayer: STATE.clientID, team: team});
                 }
 
                 case 'startGame': {
