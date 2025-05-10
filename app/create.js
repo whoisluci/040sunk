@@ -1,5 +1,6 @@
 import { PubSub } from "../utils/pubSub.js";
 import { STATE } from "../index.js";
+import * as convertImgToBase64 from '../utils/base64.js';
 
 PubSub.subscribe({
     event: 'createTeam',
@@ -67,7 +68,7 @@ function renderCreate (parentID) {
                 event: 'convertImg',
                 detail: teamImg
             });
-            
+
             localStorage.setItem('teamImg', base64String);
             console.log("Image saved to localStorage");
         } else {
