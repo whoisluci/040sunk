@@ -1,10 +1,11 @@
 import { PubSub } from "./utils/pubSub.js";
-import { renderLandingPage } from "./start/start.js";
+import * as renderLandingPage from "./start/start.js";
 import { renderTeamsPage } from "./app/teams.js";
 import { renderUserTeams } from './app/teams.js';
 
 export const STATE = {
     'client': null,
+    'clientID': null,
     'socket': null,
     'team': null,
     'teamID': null
@@ -33,7 +34,10 @@ globalThis.addEventListener("load", async () => {
                 detail: '#wrapper'
             });
         } else {
-            renderLandingPage("#wrapper");
+            PubSub.publish({
+                event: 'renderLandingPage',
+                detail: '#wrapper'
+            });
         }
     });
 
@@ -41,6 +45,11 @@ globalThis.addEventListener("load", async () => {
         const msg = JSON.parse(event.data);
 
         switch (msg.event) {
+            case "connect":
+                STATE.clientID = msg.data.clientID;
+
+                console.log(`[CLIENT]: Client ID set successfully ${STATE.clientID}`);
+                break;
             case 'register': {
                 const token = msg.data.token;
             
@@ -63,15 +72,22 @@ globalThis.addEventListener("load", async () => {
                         event: 'renderTeamsPage',
                         detail: '#wrapper'
                     });
+                } else {
+                    /* Varning */
                 }
             }
             case 'loadTeams': {
+                console.log(msg.data);    
                 const teams = msg.data.teams;
 
-                PubSub.publish({
-                    event: 'renderUserTeams',
-                    detail: teams
-                });
+                if (teams.length > 0) {
+                    PubSub.publish({
+                        event: 'renderUserTeams',
+                        detail: teams
+                    });
+                }
+
+                break;
             }
             case 'createTeam': {
                 const data = msg.data;
@@ -87,6 +103,20 @@ globalThis.addEventListener("load", async () => {
                 STATE.team = msg.data.team;
 
                 console.log(`[CLIENT]: Joined room ${STATE.roomID} successfully`);
+            }
+
+            case 'startGame': {
+                STATE.team = msg.data.team;
+                STATE.characters = msg.data.characters;
+                STATE.challenges = msg.data.challenges;
+                STATE.bars = msg.data.bars;
+
+                console.log(`[CLIENT]: Game has started .`);
+
+                PubSub.publish({
+                    event: 'renderCharacters',
+                    detail: '#wrapper'
+                });
             }
         }
     });
