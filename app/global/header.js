@@ -14,7 +14,7 @@ export function renderHeader (parentID) {
     document.querySelector(parentID).append(header);
     header.id = 'header';
     
-    if (!localStorage.getItem('token')) {
+    if (!sessionStorage.getItem('token')) {
         const backBttn = document.createElement('img');
         backBttn.src = '';
         backBttn.id = 'backBttn';

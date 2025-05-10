@@ -62,11 +62,11 @@ export function renderTeamsPage (parentID) {
     document.querySelector(parentID).append(teamsDiv);
     teamsDiv.style.overflowX = 'auto';
 
-    if (localStorage.getItem('token')) {
+    if (sessionStorage.getItem('token')) {
         const data = {
             event: 'loadTeams',
             data: {
-                token: localStorage.getItem('token')
+                token: sessionStorage.getItem('token')
             }
         }
     

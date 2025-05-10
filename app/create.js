@@ -86,7 +86,7 @@ function renderCreate (parentID) {
         const data = {
             event: 'createTeam',
             data: {
-                token: localStorage.getItem('token'),
+                token: sessionStorage.getItem('token'),
                 teamName: teamName,
             }
         };

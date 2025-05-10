@@ -36,7 +36,7 @@ export function renderJoin (parentID) {
         const data = {
             event: 'joinTeam',
             data: {
-                token: token, 
+                token: sessionStorage.getItem('token'), 
                 code: code
             }
         };
