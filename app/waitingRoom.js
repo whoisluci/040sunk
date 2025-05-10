@@ -1,8 +1,18 @@
-import { PubSub } from "../utils/pubSub";
-import { STATE } from "..";
+import { PubSub } from "../utils/pubSub.js";
+import { STATE } from "../index.js";
+import * as renderHeader from "./global/header.js";
+
+PubSub.subscribe({
+    event: 'renderWaitingRoom',
+    listener: renderWaitingRoom
+});
 
 function renderWaitingRoom(parentID) {
-    const header = renderHeader('#wrapper');
+    document.querySelector(parentID).innerHTML = ``;,
+    const header = PubSub.publish({
+        event: 'renderHeader',
+        detail: '#wrapper'
+    });
 
     const codeDiv = document.createElement('div');
     codeDiv.id = 'codeDiv';
@@ -23,7 +33,7 @@ function renderWaitingRoom(parentID) {
     document.querySelector(parentID).append(playersDiv);
 
     /* loopa igenom alla spelare och rendera namn */
-    for (let player of STATE.players ) {
+    for (let player of STATE.team.players ) {
         const name = renderPlayerName(player.name);
     }
 
@@ -35,6 +45,7 @@ function renderWaitingRoom(parentID) {
     if (STATE.team.creator !== STATE.clientID) {
         startBttn.disabled = true;
     }
+
     startBttn.addEventListener('click', () => {
         const data = {
             event: 'startGame',

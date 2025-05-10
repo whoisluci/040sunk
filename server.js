@@ -58,7 +58,7 @@ function generateTeamID() {
     }
   
     if (!/\d/.test(roomID)) {
-        return generateRoomID();
+        return generateTeamID();
     }
   
     return roomID;
@@ -112,16 +112,10 @@ async function handleRegister (data) {
     let clientID = data.clientID;
     let name = data.name;
     let password = data.password;
-    let id;
-
-    for (let user of users) {
-        if (id < user.id) {
-            id = user.id;
-        }
-    }
-
+    let currentID = users.length + 1;
+   
     const user = {
-        id: id,
+        id: currentID,
         username: name,
         password: password,
         teams: []
@@ -162,13 +156,13 @@ async function getUserFromToken(clientToken) {
     
     let token;
     let userFromToken;
-
+    
     for (let user of users) {
         
         token = await generateToken(user);
         
         if (token === clientToken) {
-            userFromToken = user;   
+            userFromToken = user;
         }
     }
 
@@ -179,21 +173,27 @@ async function handleCreateTeam(data) {
     const teamCreator = await getUserFromToken(data.token);
     const teamsJSON = await Deno.readTextFile('api/teams.json');
     const teams = JSON.parse(teamsJSON);
+
     const fileData = new Uint8Array(data.teamImg.fileData);
+    const fileType = data.teamImg.fileType;
+    let ext = fileType.split('/')[1];
 
     console.log(`Team created: ${data.teamName}`);
     console.log(`Image recieved: ${data.teamImg.fileName} (${data.teamImg.fileData})`);
     
     await Deno.mkdir('./media/teamPics', {recursive: true});
-    await Deno.writeFile(`./media/teamPics/${data.teamName}`, fileData);
+    await Deno.writeFile(`./media/teamPics/${data.teamName}.${ext}`, fileData);
 
     let id = generateTeamID();
+
+    console.log(teamCreator);
 
     const createdTeam = {
         id: id,
         teamName: data.teamName,
         creator: teamCreator.id,
-        players: [teamCreator.id]
+        players: [teamCreator.id],
+        image: ''
     };
 
     teams.push(createdTeam);
@@ -257,9 +257,11 @@ async function handleJoinTeam(data) {
 
 async function getTeamsFromUser(user) {
     console.log(user);
+    if (user['teams'].length === 0) {
+        return user['teams'];
+    }
     const teamsArr = await user['teams'];
 
-    
     let userTeams = [];
     
     const teamsJSON = await Deno.readTextFile('api/teams.json');
@@ -323,6 +325,8 @@ Deno.serve( {
             });
 
             send(socket, 'connect', {clientID: STATE.clientID});
+            console.log("hallå??");
+            
         });
 
         socket.addEventListener("message", async (event) => {
@@ -338,8 +342,10 @@ Deno.serve( {
 
                 case "register": {
                     const data = msg.data;
-                    const user = handleRegister(data);
-                    const token = generateToken(data);
+                    const user = await handleRegister(data);
+                    const token = await generateToken(user);
+                    console.log(token);
+                    
 
                     send(socket, 'register', token);
                     break;
@@ -359,7 +365,7 @@ Deno.serve( {
                     const data = msg.data;
                     const token = data.token;
                     
-                    const user = await getUserFromToken(token);
+                    const user = await getUserFromToken(token);                    
                     const userTeams = await getTeamsFromUser(user);
 
 
@@ -373,7 +379,11 @@ Deno.serve( {
 
                 case 'createTeam': {
                     const data = msg.data;
+                    console.log(data, "?");
+                    
                     const team = await handleCreateTeam(data);
+                    console.log(team);
+                    
                     STATE.teams.push(team);
 
                     send(socket, 'createTeam', {team: team});

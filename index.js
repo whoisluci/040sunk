@@ -2,6 +2,7 @@ import { PubSub } from "./utils/pubSub.js";
 import * as renderLandingPage from "./start/start.js";
 import { renderTeamsPage } from "./app/teams.js";
 import { renderUserTeams } from './app/teams.js';
+import * as renderWaitingRoom from "./app/waitingRoom.js";
 
 export const STATE = {
     'client': null,
@@ -15,7 +16,7 @@ export const token = localStorage.getItem("token");
 
 
 globalThis.addEventListener("load", async () => {
-    STATE.socket = new WebSocket("wss://040sunk.deno.dev/");
+    STATE.socket = new WebSocket("ws://localhost:8888/");
 
     STATE.socket.addEventListener("open", (event) => {
         STATE.client = event;
@@ -91,7 +92,8 @@ globalThis.addEventListener("load", async () => {
             }
             case 'createTeam': {
                 const data = msg.data;
-                STATE.team = data;
+                STATE.team = data.team;
+                STATE.teamID = data.team.id;
 
                 PubSub.publish({
                     event: 'renderWaitingRoom',
@@ -119,5 +121,12 @@ globalThis.addEventListener("load", async () => {
                 });
             }
         }
+    });
+    STATE.socket.addEventListener("close", (event) => {
+        console.info("[CLIENT]: Disconnected.", event);
+    });
+
+    STATE.socket.addEventListener("error", (error) => {
+        console.log(`[CLIENT]: ERROR`, error);
     });
 });

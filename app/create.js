@@ -36,6 +36,7 @@ function renderCreate (parentID) {
 
     const createBttn = document.createElement('button');
     document.querySelector(parentID).append(createBttn);
+    createBttn.id = 'createBttn';
     createBttn.innerText = 'Skapa';
 
     const fileInput = document.querySelector('#fileUpload');
@@ -49,7 +50,7 @@ function renderCreate (parentID) {
 
     createBttn.addEventListener('click', async () => {
         const teamName = document.querySelector('#teamName').value;
-        const teamImg = fileInput.files[0];
+        const teamImg = fileInput.files[0];    
 
         if (!teamName) {
             alert('Du måste skriva ett lagnamn för att fortsätta!');
@@ -77,5 +78,7 @@ function renderCreate (parentID) {
         };
 
         STATE.socket.send(JSON.stringify(data));
+        console.log(STATE.socket);
+        
     });
 }
