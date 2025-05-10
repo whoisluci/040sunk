@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "namn": "Ölkaféet",
+        "location": "Södra Skolgatan 43",
+        "characterBG": "/media/barPics/olkafeet.jpg",
+        "gameboardBG": ""
+    },
+    {
+        "id": 2,
+        "namn": "Rex Pizzeria",
+        "location": "Nobelvägen 107",
+        "characterBG": "/media/barPics/rexInside.jpg",
+        "gameboardBG": ""
+    },
+    {
+        "id": 3,
+        "namn": "Family Pub",
+        "location": "Sallerupsvägen 12",
+        "characterBG": "/media/barPics/familyPub.jpg",
+        "gameboardBG": ""
+    },
+    {
+        "id": 4,
+        "namn": "Fregatten",
+        "location": "Föreningsgatan 87",
+        "characterBG": "/media/barPics/fregattenWide.jpg",
+        "gameboardBG": ""
+    }
+]
