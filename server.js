@@ -258,15 +258,12 @@ async function handleCreateTeam(data) {
 
 async function handleJoinTeam(data) {
     const token = data.token;
-    const teamCode = data.code; 
-    const user = await getUserFromToken(token);
-
-    // const teamsJSON = await Deno.readTextFile('api/teams.json');
-    // const teams = JSON.parse(teamsJSON);
+    const teamCode = data.code;
+    const user = await getUserFromToken(token);  
 
     const kv = await Deno.openKv();
     const teamsKv = await kv.get(['teams']);
-    let teams = teamsKv.value || [];
+    let teams = teamsKv?.value || []; 
 
     let joinedTeam;
 
@@ -276,24 +273,19 @@ async function handleJoinTeam(data) {
             joinedTeam = team;
             break;
         }
-
     }
 
     if (!joinedTeam) {
-        return {error: 'Team not found'};
+        return { error: 'Team not found' }; 
     }
 
-    const updatedTeams = await kv.set(['teams'], teams);
+    await kv.set(['teams'], teams);
 
-    let userClient = {};
+    let userClient = STATE.clients.find(client => client.id === STATE.clientID);
 
-    for (let client of STATE.clients) {
-        if (client.id === STATE.clientID) {
-            userClient['client'] = client;
-        }
+    if (userClient) {
+        userClient.name = user.username;
     }
-
-    userClient['name'] = user.username;
 
     for (let team of STATE.teams) {
         if (team.id === teamCode) {
@@ -302,8 +294,9 @@ async function handleJoinTeam(data) {
         }
     }
 
-    return joinedTeam;
+    return joinedTeam;  
 }
+
 
 async function getTeamsFromUser(user) {
     const kv = Deno.openKv();
@@ -441,6 +434,9 @@ Deno.serve( {
                 case 'joinTeam': {
                     const data = msg.data;
                     const team = handleJoinTeam(data);
+
+                    console.log(team);
+                    
 
                     send(socket, 'joinTeam', {team: team});
                     broadcastToTeam(data.code, 'joinTeam', {newPlayer: STATE.clientID, team: team});
