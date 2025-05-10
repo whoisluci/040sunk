@@ -127,18 +127,23 @@ async function handleRegister (data) {
 
     users.push(user);
     const updatedUsers = await kv.set(['users'], users);
-    
+
     // const updatedUsers = await Deno.writeTextFile('api/users.json', JSON.stringify(users, null, 2));
 
     return user;
 }
 
 async function handleLogIn(data) {
-    const usersJSON = await Deno.readTextFile('api/users.json');
-    const users = JSON.parse(usersJSON);
+    // const usersJSON = await Deno.readTextFile('api/users.json');
+    // const users = JSON.parse(usersJSON);
 
-    console.log(users);
-    
+    const kv = await Deno.openKv();
+    const usersKv = await kv.get(['users']);
+    if (!usersKv.value) {
+        return { success: false, message: 'No users found!'};
+    }
+
+    const users = usersKv.value;
     
     let token;
 
