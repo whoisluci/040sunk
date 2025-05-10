@@ -52,15 +52,15 @@ function renderWaitingRoom(parentID) {
     /* Fixa sen så att bara skaparen kan gå vidare, för tillfället alla kan gå vidare */
 
     startBttn.addEventListener('click', () => {
-        const data = {
-            event: 'startGame',
-            data: {
-                clientID: STATE.clientID,
-                teamID: STATE.teamID
-            }
-        };
+        // const data = {
+        //     event: 'startGame',
+        //     data: {
+        //         clientID: STATE.clientID,
+        //         teamID: STATE.teamID
+        //     }
+        // };
 
-        STATE.socket.send(JSON.stringify(data));
+        // STATE.socket.send(JSON.stringify(data));
     });
 }
 
