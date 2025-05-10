@@ -223,11 +223,14 @@ async function handleCreateTeam(data) {
             creatorClient = client;
     }
 
+    console.log(stateTeam);
+    
+
     const stateTeam = {
         id: id,
         teamName: data.teamName,
         creator: creatorClient,
-        players: [],
+        players: [creatorClient],
         gameStarted: false
     };
 

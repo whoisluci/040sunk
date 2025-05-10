@@ -42,6 +42,9 @@ function renderWaitingRoom(parentID) {
     startBttn.innerText = 'START';
     document.querySelector(parentID).append(startBttn);
 
+    console.log(STATE);
+    
+
     if (STATE.team.creator !== STATE.clientID) {
         startBttn.disabled = true;
     }
