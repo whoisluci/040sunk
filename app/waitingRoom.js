@@ -45,9 +45,11 @@ function renderWaitingRoom(parentID) {
     console.log(STATE);
     
 
-    if (STATE.team.creator !== STATE.clientID) {
-        startBttn.disabled = true;
-    }
+    // if (STATE.team.creator !== STATE.clientID) {
+    //     startBttn.disabled = true;
+    // }
+
+    /* Fixa sen så att bara skaparen kan gå vidare, för tillfället alla kan gå vidare */
 
     startBttn.addEventListener('click', () => {
         const data = {
