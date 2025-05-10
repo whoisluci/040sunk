@@ -7,6 +7,7 @@ PubSub.subscribe({
 });
 
 function renderCharSelection(parentID){
+    console.log(`[CLIENT]: Game has started .`);
     document.querySelector(parentID).innerHTML = ``;
 
     const headline = document.createElement('h2');

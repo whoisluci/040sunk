@@ -155,10 +155,7 @@ globalThis.addEventListener("load", async () => {
                 STATE.challenges = await msg.data['challenges'];
                 STATE.bars = await msg.data['bars'];
 
-                console.log(`[CLIENT]: Game has started .`);
-
                 checkIfStateIsReady();
-                break;
             }
         }
     });
