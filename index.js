@@ -154,9 +154,12 @@ globalThis.addEventListener("load", async () => {
                 STATE.characters = await msg.data['characters'];                
                 STATE.challenges = await msg.data['challenges'];
                 STATE.bars = await msg.data['bars'];
-
-                checkIfStateIsReady();
-            }
+                
+                PubSub.publish({
+                    event: 'renderChars',
+                    detail: '#wrapper'
+                }); 
+            }   
         }
     });
     STATE.socket.addEventListener("close", (event) => {
