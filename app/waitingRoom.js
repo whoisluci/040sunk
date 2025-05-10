@@ -34,7 +34,7 @@ function renderWaitingRoom(parentID) {
 
     /* loopa igenom alla spelare och rendera namn */
     for (let player of STATE.team.players ) {
-        const name = renderPlayerName(player.name);
+        const name = renderPlayerName(player['name']);
     }
 
     const startBttn = document.createElement('button');

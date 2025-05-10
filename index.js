@@ -115,7 +115,7 @@ globalThis.addEventListener("load", async () => {
                 } else {
                     PubSub.publish({
                         event: 'renderUserName',
-                        detail: `${STATE.user.name}`
+                        detail: `${STATE.user.username}`
                     });
                 }
 
