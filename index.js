@@ -107,6 +107,14 @@ globalThis.addEventListener("load", async () => {
                 STATE.teamID = msg.data.team.id;
                 STATE.team = msg.data.team;
                 
+                let name;
+
+                for (let player of STATE.team.players) {
+                    if (player.client.id === msg.data.newPlayer) {
+                        name = player.name; 
+                    }
+                }
+                
                 if (STATE.clientID === msg.data.newPlayer) {
                    PubSub.publish({
                     event: 'renderWaitingRoom',
@@ -115,7 +123,7 @@ globalThis.addEventListener("load", async () => {
                 } else {
                     PubSub.publish({
                         event: 'renderUserName',
-                        detail: `${STATE.user.username}`
+                        detail: `${name}`
                     });
                 }
 
