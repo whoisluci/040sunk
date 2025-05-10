@@ -21,8 +21,8 @@ export function renderLogIn (parentID) {
     inputDiv.id = 'inputDiv';
 
     inputDiv.innerHTML = `
-        <label for='namn'>Namn</label>
-        <input type='text' name='namn' id='name'/>
+        <label for='username'>Användarnamn</label>
+        <input type='text' name='username' id='username'/>
         <label for='lösenord'>Lösenord</label>
         <input type='password' name='lösenord' id='password'/>
     `;
@@ -33,7 +33,7 @@ export function renderLogIn (parentID) {
     button.innerText = 'Logga in';
 
     button.addEventListener('click', () => {
-        const name = document.querySelector('#name').value;
+        const name = document.querySelector('#username').value;
         const password = document.querySelector('#password').value;
 
         const data = {
