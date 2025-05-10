@@ -57,6 +57,7 @@ globalThis.addEventListener("load", async () => {
             
                 if (token !== null && token !== '' && token !== undefined) {
                     localStorage.setItem('token', token);
+                    STATE.user = msg.data.user;
 
                     PubSub.publish({
                         event: 'renderTeamsPage',
@@ -69,6 +70,7 @@ globalThis.addEventListener("load", async () => {
 
                 if (token !== null && token !== '' && token !== undefined) { 
                     localStorage.setItem('token', token);
+                    STATE.user = msg.data.user;
 
                     PubSub.publish({
                         event: 'renderTeamsPage',
