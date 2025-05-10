@@ -139,7 +139,13 @@ async function renderCharSelection(parentID){
 function renderCharDialogue (parentID, charName) {
     document.querySelector(parentID).innerHTML = ``;
 
-    const chosenChar = characters.find((el) => el.name === charName)
+    let chosenChar;
+
+    for (let char of characters) {
+        if (charName === char.name) {
+            chosenChar = char;
+        }
+    }
     const dialogue = chosenChar.dialogue;
     const barID = chosenChar.bar;
     const bar = STATE.bars.find((el) => el.id === barID);
