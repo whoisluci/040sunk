@@ -3,15 +3,25 @@ import { token } from "../index.js";
 import { PubSub } from "../utils/pubSub.js";
 import * as createTeam from './create.js';
 import * as joinTeam from './join.js'
+import * as renderHeader from './global/header.js'
 
 PubSub.subscribe({
     event: 'renderTeamsPage',
     listener: renderTeamsPage
 });
 
+PubSub.subscribe({
+    event: 'renderUserTeams',
+    listener: renderUserTeams
+})
+
 export function renderTeamsPage (parentID) {
     document.querySelector(parentID).innerHTML = ``;
-    // const header = renderHeader();
+
+    const header = PubSub.publish({
+        event: 'renderHeader',
+        detail: '#wrapper'
+    });
 
     const text = document.createElement('h2');
     text.id = 'headline';
@@ -41,44 +51,60 @@ export function renderTeamsPage (parentID) {
             detail: '#wrapper'
         });
     });
+    
+    const teamsText = document.createElement('h3');
+    teamsText.id = 'teamsText';
+    document.querySelector(parentID).append(teamsText);
+    teamsText.innerText = 'Dina lag';
 
     const teamsDiv = document.createElement('div');
     teamsDiv.id = 'teamsDiv';
     document.querySelector(parentID).append(teamsDiv);
+    teamsDiv.style.overflowX = 'auto';
 
-    const teamsText = document.createElement('h3');
-    teamsText.id = 'teamsText';
-    teamsDiv.append(teamsText);
-    teamsText.innerText = 'Dina lag';
-
-    console.log(localStorage.getItem('token'));
-    
-    const data = {
-        event: 'loadTeams',
-        data: {
-            token: localStorage.getItem('token')
+    if (localStorage.getItem('token')) {
+        const data = {
+            event: 'loadTeams',
+            data: {
+                token: localStorage.getItem('token')
+            }
         }
-    }
-
-    STATE.socket.send(JSON.stringify(data));
     
+        STATE.socket.send(JSON.stringify(data));
+    }
 }
 
 export function renderUserTeams(teams) {
-    const teamsDiv = document.querySelector('teamsDiv');
+    const teamsDiv = document.querySelector('#teamsDiv');
 
-    for (let team of teams) {
-        const teamDiv = document.createElement('div');
-        teamDiv.id = `${team.teamName}`;
-        teamsDiv.appendChild(teamDiv);
+    if (teams.length === 0 || (typeof teams) === 'string')  {
+        const text = document.createElement('p');
+        text.innerText = 'Du har inga lag:(';
+        teamsDiv.append(text);
+        return;
+    }
 
+    teamsDiv.classList.add('swipe-container');
+    const ul = document.createElement('ul');
+    teamsDiv.append(ul);
+    ul.classList.add('slider-container');
+
+    teams.forEach(team => {
+        const teamLi = document.createElement('li');
+        teamLi.id = `${team.teamName}`;
+        teamLi.classList.add('team');
+        
         const teamImg = document.createElement('img');
         teamImg.id = 'teamImg';
         teamImg.src = '';
-        teamDiv.append(teamImg);
+        teamLi.append(teamImg);
 
         const teamName = document.createElement('h5');
         teamName.id = 'teamName';
-        teamDiv.append(teamName)
-    }
+        teamLi.append(teamName);
+
+        ul.appendChild(teamLi);
+    });
+
+    return teamsDiv;
 }

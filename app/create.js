@@ -8,8 +8,11 @@ PubSub.subscribe({
 
 function renderCreate (parentID) {
     document.querySelector(parentID).innerHTML = ``;
-
-    // const header = renderHeader();
+    
+    const header = PubSub.publish({
+        event: 'renderHeader',
+        detail: '#wrapper'
+    });
 
     const headline = document.createElement('h2');
     headline.id = 'headline';
@@ -23,27 +26,53 @@ function renderCreate (parentID) {
         <input type='text' name='teamName' id='teamName'/>
 
         <h3 id='teamImg'>Välj lagbild</h3>
-        /* drop down eller popUp?*/ 
+        <input type='file' id='fileUpload' class='filepond' name='filepond' capture='user' accept='image/*'/>
 
-        <img src=''>
+        <img id='preview' src=''>
 
-        <h5 id='descText></h5>
+        <h5 id='descText'></h5>
     `;
     document.querySelector(parentID).append(teamDiv);
 
-    const startBttn = document.createElement('button');
-    document.querySelector(parentID).append(startBttn);
-    startBttn.innerText = 'Start';
+    const createBttn = document.createElement('button');
+    document.querySelector(parentID).append(createBttn);
+    createBttn.innerText = 'Skapa';
 
-    startBttn.addEventListener('click', () => {
+    const fileInput = document.querySelector('#fileUpload');
+    fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (file) {
+            const previewImg = document.querySelector('#preview');
+            previewImg.src = URL.createObjectURL(file);
+        }
+    });
+
+    createBttn.addEventListener('click', async () => {
         const teamName = document.querySelector('#teamName').value;
-        const teamImg = document.querySelector('#teamImg');
+        const teamImg = fileInput.files[0];
+
+        if (!teamName) {
+            alert('Du måste skriva ett lagnamn för att fortsätta!');
+            return;
+        }
+
+        if (!teamImg) {
+            alert('Du måste välja en lagbild för att fortsätta');
+            return;
+        }
+
+        const imgArrayBuffer = await teamImg.arrayBuffer();
 
         const data = {
             event: 'createTeam',
             data: {
                 token: localStorage.getItem('token'),
-                teamName: teamName
+                teamName: teamName,
+                teamImg: {
+                    fileName: teamImg.name,
+                    fileType: teamImg.type,
+                    fileData: Array.from(new Uint8Array(imgArrayBuffer))
+                }
             }
         };
 

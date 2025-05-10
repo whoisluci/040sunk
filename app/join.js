@@ -8,7 +8,10 @@ PubSub.subscribe({
 export function renderJoin (parentID) {
     document.querySelector(parentID).innerHTML = ``;
 
-    // const header = renderHeader();
+    const header = PubSub.publish({
+        event: 'renderHeader',
+        detail: '#wrapper'
+    });
 
     const text = document.createElement('h2');
     text.id = 'headline';
