@@ -382,20 +382,17 @@ Deno.serve( {
                     const data = msg.data;
                     const user = await handleRegister(data);
                     const token = await generateToken(user);
-                    console.log(token);
-                    
 
-                    send(socket, 'register', token);
+                    send(socket, 'register', {token: token, user: user});
                     break;
                 }
 
                 case 'logIn': {
                     const data = msg.data;
                     const token = await handleLogIn(data);
-                    console.log(token);
+                    const user = await getUserFromToken(token);
                     
-                    
-                    send(socket, 'logIn', token);
+                    send(socket, 'logIn', {token: token, user: user});
                     break;
                 }
 

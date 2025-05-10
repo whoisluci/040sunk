@@ -8,6 +8,7 @@ export const STATE = {
     'client': null,
     'clientID': null,
     'socket': null,
+    'user': null,
     'team': null,
     'teamID': null
 };
