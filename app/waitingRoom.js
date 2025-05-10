@@ -8,7 +8,7 @@ PubSub.subscribe({
 });
 
 function renderWaitingRoom(parentID) {
-    document.querySelector(parentID).innerHTML = ``;,
+    document.querySelector(parentID).innerHTML = ``;
     const header = PubSub.publish({
         event: 'renderHeader',
         detail: '#wrapper'
