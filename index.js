@@ -23,7 +23,7 @@ export const token = localStorage.getItem("token");
 globalThis.addEventListener("load", async () => {
     STATE.socket = new WebSocket("wss://040sunk.deno.dev/");
 
-    STATE.socket.addEventListener("open", (event) => {
+    STATE.socket.addEventListener("open", async (event) => {
         STATE.client = event;
         let _pingInterval = null;
         if (!_pingInterval) {
@@ -47,7 +47,7 @@ globalThis.addEventListener("load", async () => {
         }
     });
 
-    STATE.socket.addEventListener("message", (event) => {
+    STATE.socket.addEventListener("message", async (event) => {
         const msg = JSON.parse(event.data);
 
         switch (msg.event) {
@@ -138,11 +138,11 @@ globalThis.addEventListener("load", async () => {
 
             case 'startGame': {
                 // STATE.team = msg.data.team;
-                STATE.characters = msg.data['characters'];
+                STATE.characters = await msg.data['characters'];
                 console.log(msg.data);
                 
-                STATE.challenges = msg.data['challenges'];
-                STATE.bars = msg.data['bars'];
+                STATE.challenges = await msg.data['challenges'];
+                STATE.bars = await msg.data['bars'];
 
                 console.log(`[CLIENT]: Game has started .`);
 
