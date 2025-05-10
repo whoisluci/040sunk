@@ -2,6 +2,14 @@
 
 import { serveFile, serveDir } from "jsr:@std/http/file-server";
 
+const STATE = {
+    'clients': [],
+    'clientID': null,
+    'teams': [],
+    'team': null
+    /* ändra om det behövs */
+};
+
 // Sends a message as { event: event, data: data } to `socket` (i.e. a connection)
 function send(socket, event, data) {
   socket.send(JSON.stringify({ event, data }));
@@ -11,7 +19,11 @@ function broadcastToTeam(teamID, event, data) {
     for (const team of STATE.teams) {
       if (team.id === teamID) {
         for (const player of team.players) {
-          send(player.connection, event, data);
+            for (const client of STATE.clients) {
+                if (player === client.id) {
+                    send(client.connection, event, data);
+                }
+            }
         }
       }
     }
@@ -339,14 +351,6 @@ async function handleStartGame (teamID) {
         }
     }
 }
-
-const STATE = {
-    'clients': [],
-    'clientID': null,
-    'teams': [],
-    'team': null
-    /* ändra om det behövs */
-};
 
 /*                                      SERVER                                                 */
 Deno.serve( {
