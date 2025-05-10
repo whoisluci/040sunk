@@ -15,7 +15,7 @@ export const token = localStorage.getItem("token");
 
 
 globalThis.addEventListener("load", async () => {
-    STATE.socket = new WebSocket("ws://localhost:8888");
+    STATE.socket = new WebSocket("wss://040sunk.deno.dev/");
 
     STATE.socket.addEventListener("open", (event) => {
         STATE.client = event;
