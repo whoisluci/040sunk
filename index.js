@@ -5,6 +5,17 @@ import { renderUserTeams } from './app/teams.js';
 import * as renderWaitingRoom from "./app/waitingRoom.js";
 import * as renderCharacters from './app/characters.js'
 
+function checkIfStateIsReady () {
+    if (STATE.characters && STATE.challenges && STATE.bars) {
+        PubSub.publish({
+            event: 'renderChars',
+            detail: '#wrapper'
+    });
+    } else {
+        setTimeout(checkIfStateIsReady, 100);
+    }
+}
+
 export const STATE = {
     'client': null,
     'clientID': null,
@@ -146,14 +157,7 @@ globalThis.addEventListener("load", async () => {
 
                 console.log(`[CLIENT]: Game has started .`);
 
-                if (STATE.characters && STATE.challenges && STATE.bars) {
-                    PubSub.publish({
-                        event: 'renderChars',
-                        detail: '#wrapper'
-                });
-                } else {
-                    setTimeout(checkIfStateIsReady, 100);
-                }
+                checkIfStateIsReady();
                 break;
             }
         }
