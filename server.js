@@ -161,8 +161,12 @@ async function handleLogIn(data) {
 }
 
 async function getUserFromToken(clientToken) {
-    const usersJSON = await Deno.readTextFile('api/users.json');
-    const users = JSON.parse(usersJSON);
+    // const usersJSON = await Deno.readTextFile('api/users.json');
+    // const users = JSON.parse(usersJSON);
+
+    const kv = await Deno.openKv();
+    const usersKv = await kv.get(['users']);
+    const users = usersKv.value;
     
     let token;
     let userFromToken;
