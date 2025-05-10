@@ -151,7 +151,7 @@ async function handleLogIn(data) {
         if (user.username === data.name && user.password === data.password) {
             console.log('hej?');
             
-            token = await generateToken(data);
+            token = await generateToken(user);
             console.log(token);
             
         } 
