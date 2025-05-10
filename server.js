@@ -106,8 +106,12 @@ function handleHTTPRequest(rqst) {
 }
 
 async function handleRegister (data) {
-    const usersJSON = await Deno.readTextFile("api/users.json");
-    const users = JSON.parse(usersJSON);
+    // const usersJSON = await Deno.readTextFile("api/users.json");
+    // const users = JSON.parse(usersJSON);
+
+    const kv = await Deno.openKv();
+    const usersKv = await kv.get(['users']);
+    const users = usersKv.value || [];
 
     let clientID = data.clientID;
     let name = data.name;
@@ -122,8 +126,9 @@ async function handleRegister (data) {
     };
 
     users.push(user);
-
-    const updatedUsers = await Deno.writeTextFile('api/users.json', JSON.stringify(users, null, 2));
+    const updatedUsers = await kv.set(['users'], users);
+    
+    // const updatedUsers = await Deno.writeTextFile('api/users.json', JSON.stringify(users, null, 2));
 
     return user;
 }
