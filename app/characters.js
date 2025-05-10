@@ -3,7 +3,7 @@ import { PubSub } from "../utils/pubSub.js";
 
 PubSub.subscribe({
     event: 'renderChars',
-    listener: renderCharacters
+    listener: renderCharSelection
 });
 
 function renderCharSelection(parentID){

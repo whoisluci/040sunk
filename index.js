@@ -3,6 +3,7 @@ import * as renderLandingPage from "./start/start.js";
 import { renderTeamsPage } from "./app/teams.js";
 import { renderUserTeams } from './app/teams.js';
 import * as renderWaitingRoom from "./app/waitingRoom.js";
+import * as renderCharacters from './app/characters.js'
 
 export const STATE = {
     'client': null,
