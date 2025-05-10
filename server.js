@@ -401,6 +401,8 @@ Deno.serve( {
                     const token = data.token;
                     
                     const user = await getUserFromToken(token);
+                    console.log(user);
+                    
                     const userTeams = await getTeamsFromUser(user);
 
 
