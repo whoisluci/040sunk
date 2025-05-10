@@ -452,7 +452,7 @@ Deno.serve( {
 
                 case 'startGame': {
                     // const teamID = msg.data.teamID;
-                    const data = handleStartGame();
+                    const data = await handleStartGame();
 
                     // broadcastToTeam(teamID, 'startGame', data);
                     send(socket, 'startGame', data);
