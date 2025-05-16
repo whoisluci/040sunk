@@ -5,15 +5,15 @@ import * as createTeam from './create.js';
 import * as joinTeam from './join.js'
 import * as renderHeader from './global/header.js'
 
-PubSub.subscribe({
-    event: 'renderTeamsPage',
-    listener: renderTeamsPage
-});
+// PubSub.subscribe({
+//     event: 'renderTeamsPage',
+//     listener: renderTeamsPage
+// });
 
-PubSub.subscribe({
-    event: 'renderUserTeams',
-    listener: renderUserTeams
-})
+// PubSub.subscribe({
+//     event: 'renderUserTeams',
+//     listener: renderUserTeams
+// })
 
 export function renderTeamsPage (parentID) {
     document.querySelector(parentID).innerHTML = ``;

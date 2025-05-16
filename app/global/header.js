@@ -1,6 +1,5 @@
 import { STATE } from "../../index.js";
 import { PubSub } from "../../utils/pubSub.js";
-import * as renderTeamsPage from "../teams.js";
 import * as renderMenu from './menu.js';
 import * as renderLandingPage from '../../start/start.js';
 
