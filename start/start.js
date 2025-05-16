@@ -9,18 +9,14 @@ PubSub.subscribe({
 });
 
 export function renderLandingPage(parentID) {
-    const logoDiv = document.createElement('div');
-    logoDiv.id = 'logoDiv';
-    document.querySelector(parentID).appendChild(logoDiv);
-
-    const logoImg = document.createElement('img');
-    logoImg.id = 'logotype';
-    logoDiv.appendChild(logoImg);
-    /* lägg in source för loggan */
+    const logotype = document.createElement('img');
+    document.querySelector(parentID).append(logotype);
+    logotype.id = 'logotype';
+    logotype.src = '../../assets/logotype.png';
 
     const tagline = document.createElement('h2');
     tagline.id = 'tagline';
-    logoDiv.appendChild(tagline);
+    document.querySelector(parentID).appendChild(tagline);
     tagline.innerText = 'tagline'; /* lägg in tagline */
 
     const inputDiv = document.createElement('div');

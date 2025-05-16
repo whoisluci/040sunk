@@ -92,8 +92,8 @@ function handleHTTPRequest(rqst) {
         console.log(pathname);
         
     
-        if (pathname.startsWith("/media")) {
-            return serveDir(rqst, { fsRoot: "media", urlRoot: "media" });
+        if (pathname.startsWith("/assets")) {
+            return serveDir(rqst, { fsRoot: "assets", urlRoot: "assets" });
         } else if (pathname.startsWith("/start")) {
             return serveDir(rqst, { fsRoot: "start", urlRoot: "start" });
         } else if (pathname.startsWith("/app")) {
@@ -146,17 +146,13 @@ async function handleRegister (data) {
 }
 
 async function handleLogIn(data) {
-    // const usersJSON = await Deno.readTextFile('api/users.json');
-    // const users = JSON.parse(usersJSON);
-
     const kv = await Deno.openKv();
     const usersKv = await kv.get(['users']);
-    if (!usersKv.value) {
+    if (!usersKv.value || usersKv.value === null) {
         return { success: false, message: 'No users found!'};
     }
 
     const users = usersKv.value;
-    
     let token;
 
     for (let user of users) {        
@@ -179,6 +175,9 @@ async function getUserFromToken(clientToken) {
     const kv = await Deno.openKv();
     const usersKv = await kv.get(['users']);
     const users = usersKv.value;
+
+    console.log(usersKv);
+    
 
     let token;
     let userFromToken;
@@ -380,12 +379,16 @@ Deno.serve( {
         });
 
         socket.addEventListener("message", async (event) => {
+            console.log("hello");
+            
             const msg = JSON.parse(event.data);
             console.log("[SERVER]: Message :: ", msg);
 
             switch (msg.event) {
                 case "ping": {
                     console.log('[SERVER]: Recieved ping, sending pong...');
+                    console.log('hm???');
+                    
                     send(socket, 'pong', {});
                     break;
                 }
@@ -448,19 +451,23 @@ Deno.serve( {
 
                     send(socket, 'joinTeam', {team: team});
                     broadcastToTeam(data.code, 'joinTeam', {newPlayer: STATE.clientID, team: team});
+
+                    break;
                 }
 
-                case 'startGame': {
-                    // const teamID = msg.data.teamID;
+                case 'loadGameData': {
                     const data = await handleStartGame();
 
-                    // broadcastToTeam(teamID, 'startGame', data);
-                    send(socket, 'startGame', data);
+                    console.log(data);
+                    
+
+                    send(socket, 'loadGameData', data);
+                    break;
                 }
 
                 default: {
-                    console.warn('No event was specified!');
-                    
+                    console.log('No event was specified!');
+                    break;
                 }
             }
         });

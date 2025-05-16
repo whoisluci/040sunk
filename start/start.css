@@ -1,0 +1,23 @@
+#wrapper {
+    background: #01351C;
+}
+
+#map {
+    flex-shrink: 0;
+    aspect-ratio: 297/167;
+    background: url() lightgray 50% / cover no-repeat;
+}
+
+#logotype {
+    flex-shrink: 0;
+}
+
+#username,
+#password {
+    width: 260px;
+    height: 50px;
+    flex-shrink: 0;
+
+    stroke: solid 1px #FFEEB5;
+    border-radius: 10px;
+}

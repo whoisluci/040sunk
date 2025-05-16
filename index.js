@@ -1,20 +1,9 @@
 import { PubSub } from "./utils/pubSub.js";
 import * as renderLandingPage from "./start/start.js";
-import { renderTeamsPage } from "./app/teams.js";
 import { renderUserTeams } from './app/teams.js';
 import * as renderWaitingRoom from "./app/waitingRoom.js";
 import * as renderCharacters from './app/characters.js'
-
-function checkIfStateIsReady () {
-    if (STATE.characters && STATE.challenges && STATE.bars) {
-        PubSub.publish({
-            event: 'renderChars',
-            detail: '#wrapper'
-    });
-    } else {
-        setTimeout(checkIfStateIsReady, 100);
-    }
-}
+import * as renderStartGame from './app/startGame.js';
 
 export const STATE = {
     'client': null,
@@ -25,14 +14,15 @@ export const STATE = {
     'teamID': null,
     'characters': null,
     'challenges': null,
-    'bars': null
+    'pubs': null
 };
 
-export const token = localStorage.getItem("token");
+export const token = sessionStorage.getItem("token");
 
 
 globalThis.addEventListener("load", async () => {
-    STATE.socket = new WebSocket("wss://040sunk.deno.dev/");
+    STATE.socket = new WebSocket("ws://localhost:8888");
+console.log(STATE);
 
     STATE.socket.addEventListener("open", async (event) => {
         STATE.client = event;
@@ -47,7 +37,7 @@ globalThis.addEventListener("load", async () => {
 
         if (token !== null && token !== undefined) {
             PubSub.publish({
-                event: 'renderTeamsPage',
+                event: 'renderStartGame',
                 detail: '#wrapper'
             });
         } else {
@@ -75,10 +65,11 @@ globalThis.addEventListener("load", async () => {
                     STATE.user = msg.data.user;
 
                     PubSub.publish({
-                        event: 'renderTeamsPage',
+                        event: 'renderStartGame',
                         detail: '#wrapper'
                     });
                 }
+                break;
             }
             case 'logIn': {
                 const token = msg.data.token;
@@ -88,12 +79,13 @@ globalThis.addEventListener("load", async () => {
                     STATE.user = msg.data.user;
 
                     PubSub.publish({
-                        event: 'renderTeamsPage',
+                        event: 'renderStartGame',
                         detail: '#wrapper'
                     });
                 } else {
                     /* Varning */
                 }
+                break;
             }
             case 'loadTeams': {
                 console.log(msg.data);    
@@ -105,7 +97,6 @@ globalThis.addEventListener("load", async () => {
                         detail: teams
                     });
                 }
-
                 break;
             }
             case 'createTeam': {
@@ -144,22 +135,31 @@ globalThis.addEventListener("load", async () => {
                     });
                 }
 
-                console.log(`[CLIENT]: Joined room ${STATE.roomID} successfully`);
+                console.log(`[CLIENT]: Joined room ${STATE.teamID} successfully`);
 
                 break;
             }
 
-            case 'startGame': {
-                // STATE.team = msg.data.team;
-                STATE.characters = await msg.data['characters'];                
-                STATE.challenges = await msg.data['challenges'];
-                STATE.bars = await msg.data['bars'];
+            case 'loadGameData': {
+                console.log(msg.data);
                 
+                STATE.characters = await msg.data.data['characters'];                
+                STATE.challenges = await msg.data.data['challenges'];
+                STATE.pubs = await msg.data.data['bars'];
+
+                console.log(STATE.characters, STATE.challenges, STATE.pubs);
+            
+                break;
+            }   
+
+            case 'startGame': {
                 PubSub.publish({
                     event: 'renderChars',
                     detail: '#wrapper'
-                }); 
-            }   
+                });
+
+                break;
+            }
         }
     });
     STATE.socket.addEventListener("close", (event) => {
