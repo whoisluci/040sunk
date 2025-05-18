@@ -1,23 +1,184 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 #wrapper {
-    background: #01351C;
+    width: 100%;
+    position: relative;
+    background-color: #01351c;
+    overflow: hidden;
+    text-align: left;
+    font-size: 20px;
+    color: #ffeeb5;
+    font-family: 'Montserrat';
 }
 
-#map {
-    flex-shrink: 0;
+#backgroundImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0.1;
+    pointer-events: none;
     aspect-ratio: 297/167;
-    background: url() lightgray 50% / cover no-repeat;
 }
 
-#logotype {
+#logotypeDiv {
+    height: 120px;
     flex-shrink: 0;
+    display: flex;
+    margin: 40px;
+}
+
+#beer {
+    position: relative;
+    top: 32px;
+    left: 72%;
+    object-fit: contain;
+    width: 58px;
+    height: 78px;
+    transform: rotate(5.374deg);
+    flex-shrink: 0;
+    aspect-ratio: 29/39;
+}
+
+#logotypeText {
+    position: relative;
+    right: 10%;
+    width: 255px;
+    height: 115px;
+    object-fit: cover;
+
+    flex-shrink: 0;
+    aspect-ratio: 51/23;
+}
+
+#logInText {
+    width: 90px;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Montserrat;
+    color: #ffeeb5;
+    text-align: left;
+    display: inline-block;
+}
+
+#inputDiv {
+    position: relative;
+    margin-bottom: 20px;
 }
 
 #username,
 #password {
-    width: 260px;
+    width: 100%;
     height: 50px;
     flex-shrink: 0;
 
-    stroke: solid 1px #FFEEB5;
-    border-radius: 10px;
+    border: solid 1px #FFEEB5;
+    color: #ffeeb5;
+
+    position: relative;
+    border-radius: 5px;
+    background-color: rgba(217, 217, 217, 0);
+    box-sizing: border-box;
+}
+
+#username::placeholder,
+#password::placeholder {
+    width: 130px;
+    position: relative;
+    font-size: 16px;
+    display: inline-block;
+    font-family: Montserrat;
+
+    color: #ffeeb5;
+    text-align: left;  
+    font-style: italic;
+    margin: 15px 17px;
+}
+
+#username:focus,
+#password:focus {
+    color: #ffeeb5;
+    text-align: left;  
+    font-style: italic;
+}
+
+.inputIcon {
+    position: absolute;
+    right: 5%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#userIcon {
+    top: 35%
+}
+
+#lockIcon {
+    top: 41%;
+}
+
+#logInBttn {
+    display: flex;
+    width: 260px;
+    height: 66px;
+    padding: 21px 59px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+
+    border-radius: 5px;
+    border: 1px solid #FFEEB5;
+    background-color: rgba(217, 217, 217, 0);
+    color: #FFEEB5;
+
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#logInBttn:hover {
+    background-color: #c2b38d;
+    color: #1e3b2f;
+    cursor: pointer;
+}
+
+#line {
+    width: 260px;
+    height: 1px;
+    background-color: #CF973B;;
+    border: none;
+}
+
+#register {
+    color: #FFEEB5;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#registerLink {
+    color: #CF973B;
+    font-style: italic;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+#registerLink:hover {
+    font-weight: bold;
+    cursor: pointer;
 }
