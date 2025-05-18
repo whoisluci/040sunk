@@ -1,0 +1,102 @@
+[
+    {
+        "barID": 1,
+        "questions": [
+            {
+                "id": 2,
+                "answer": "Vodka, Kahlua, Baileys och Mjölk"
+            },
+            {
+                "id": 3,
+                "answer": "Bo-Göran 'Bosse' Larsson"
+            },
+            {
+                "id": 4,
+                "answer": 23
+            },
+            {
+                "id": 6,
+                "answer": "Ingen"
+            },
+            {
+                "id": 8,
+                "answer": "Arbetets ära"
+            },
+            {
+                "id": 9,
+                "answer": "Ryska Gummifabriks AB"
+            }
+        ]
+    },
+    {
+        "barID": 2,
+        "questions": [
+            {
+                "id": 2,
+                "answer": "En skoaffär & en klädaffär"
+            },
+            {
+                "id": 3,
+                "answer": "Robert Prytz"
+            },
+            {
+                "id": 4,
+                "answer": "En plaskdamm"
+            },
+            {
+                "id": 6,
+                "answer": "Cerveza por favor"
+            },
+            {
+                "id": 8,
+                "answer": "Nytorgsmannen"
+            }
+        ]
+    },
+    {
+        "barID": 3,
+        "questions": [
+            {
+                "id": 2,
+                "answer": "Älskar öl, älskar pizza"
+            },
+            {
+                "id": 3,
+                "answer": "The Sopranos och The Office"
+            },
+            {
+                "id": 4,
+                "answer": "Bailey's, cointreau, kaffe, grädde"
+            },
+            {
+                "id": 6,
+                "answer": "Odlingsplats"
+            }
+        ]
+    },
+    {
+        "barID": 4,
+        "questions": [
+            {
+                "id": 1,
+                "answer": "Sofia Amalia"
+            },
+            {
+                "id": 3,
+                "answer":"Joakim Thåström"
+            },
+            {
+                "id": 4,
+                "answer": "Skeppsklocka"
+            },
+            {
+                "id": 6,
+                "answer": 4
+            },
+            {
+                "id": 7,
+                "answer":  "Vid baren, nära rodret"
+            }
+        ]
+    }
+  ]
