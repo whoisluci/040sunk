@@ -1,217 +1,280 @@
 [
   {
-    "id": "fregatt_1",
-    "question": "Vad är en Fregatt?",
-    "type": "Knowledge",
-    "icon": "fregatt_image",
-    "options": [
-      "En gammal krigsbåt med tre master",
-      "En fiskebåt med en mast",
-      "En segelbåt med två master"
+    "pubID": 1,
+    "questions": [
+      {
+        "id": 1,
+        "question": "Gå till baren, köp bartenders rekommendation på en cocktail eller mocktail",
+        "type": "challenge",
+        "iconPath": "/assets/icons/drink.png"
+      },
+      {
+        "id": 2,
+        "question": "Vad innehåller den skevt namngivna drinken, Orgasm?",
+        "type": "question",
+        "options": [
+          "Mynta, vit rom, socker, lime och sodavatten.",
+          "Tequila sunrise, grenadine, tequila, triple sec och apelsinjuice",
+          "Vodka, Kahlua, Baileys och Mjölk",
+          "Vodka, Kaffe, Coca Cola, Grädde och Gammeldansk"
+        ],
+        "iconPath": "/assets/icons/orgasm.png"
+      },
+      {
+        "id": 3,
+        "question": "Vad heter den kända Malmösonen, vars fotografi står till vänster om dig när du kommer in i rummet?",
+        "type": "question",
+        "options": [
+          "Bo-Göran 'Bosse' Larsson",
+          "Krister Kristensson",
+          "Ingvar Svahn",
+          "Malin Baryard"
+        ],
+        "iconPath": "/assets/icons/malmoson.png"
+      },
+      {
+        "id": 4,
+        "question": "Hur många spelare har signerat MFF-tröja som hänger vid böckerna?",
+        "type": "questions",
+        "iconPath": "/assets/icons/mff.png"
+      },
+      {
+        "id": 5,
+        "question": "Spela pekleken...",
+        "type": "challenge",
+        "iconPath": "/assets/icons/pointingFinger.png"
+      },
+      {
+        "id": 6,
+        "question": "Vem har ansvar för böckerna som finns jämte baren?",
+        "type": "question",
+        "options": [
+          "Ingen",
+          "Bartendern",
+          "Stadsbiblioteket",
+          "Bosse"
+        ],
+        "iconPath": "/assets/icons/books.png"
+      },
+      {
+        "id": 7,
+        "question": "Ta en selfie med en bok från bokhyllan och ladda upp den på spelets webbplats.",
+        "type": "challenge",
+        "iconPath": "/assets/icons/camera.png"
+      },
+      {
+        "id": 8,
+        "question": "Vad heter statyn som symboliserar arbetarrörelsens historia och kamp på Möllevångstorget?",
+        "type": "question",
+        "iconPath": "/assets/icons/statue.png"
+
+      },
+      {
+        "id": 9,
+        "question": "Vad står RGA för?",
+        "type": "question",
+        "options": [
+          "Reparationer & Gjuteri Andersson",
+          "Ryska Gummifabriks AB",
+          "Rökeri & Grill AB",
+          "Räkmackor och annat Gott AB"
+        ],
+        "iconPath": "/assets/icons/question.png"
+      }
     ]
   },
   {
-    "id": "fregatt_2",
-    "question": "Det finns en fregattmodell här, gå och kika på den. Vet ni vad modellen heter och från vilket land kommer den ifrån?",
-    "type": "Knowledge",
-    "icon": "fregatt_image",
-    "answer": "Modellen heter Sofia Amalia och den kommer ifrån Danmark."
-  },
-  {
-    "id": "fregatt_3",
-    "question": "Fregatten gjordes om till en annan verksamhet och blev sedan Fregatten igen. Vad hette den andra verksamheten?",
-    "type": "General Knowledge",
-    "icon": "pizza",
-    "options": [
-      "Sullarp",
-      "Rimini",
-      "Värnhemmet",
-      "Kowalskis"
+    "pubID": 2,
+    "questions": [
+      {
+        "id": 1,
+        "question": "Kör biljard – vinnaren bestämmer valfri bestraffning mot förloraren",
+        "type": "challenge",
+        "iconPath": "/assets/icons/poolBall.png"
+      },
+      {
+        "id": 2,
+        "question": "Innan Rex Pizzeria var så stort... Vad var det för verksamheter?",
+        "type": "question",
+        "options": [
+          "En bokaffär & en skivaffär",
+          "En skoaffär & en klädaffär",
+          "En frisörsalong & ett bageri",
+          "En bingohall & en thaimassage"
+        ],
+        "iconPath": "/assets/icons/rex.png"
+      },
+      {
+        "id": 3,
+        "question": "Vad heter fotbollsspelaren på fotot bakom baren?",
+        "type": "question",
+        "iconPath": "/assets/icons/rexPhoto.png"
+      },
+      {
+        "id": 4,
+        "question": "Vad var Nobeltorget under 70-talet?",
+        "type": "question",
+        "options": [
+          "En skatepark",
+          "En plaskdamm",
+          "En hockeyrink",
+          "En frizon för narkotikabrukare"
+        ],
+        "iconPath": "/assets/icons/nobel.png"
+      },
+      {
+        "id": 5,
+        "question": "Spela '21'-leken enligt instruktionerna...",
+        "type": "challenge",
+        "iconPath": "/assets/icons/21.png"
+      },
+      {
+        "id": 6,
+        "question": "Vad står det på den andra skylten vid baren nära pizzadelen?",
+        "type": "question",
+        "iconPath": "/assets/icons/licensePlate.png"
+      },
+      {
+        "id": 7,
+        "question": "Ta en selfie med dinosauriemålningen i bakgrunden och ladda upp den.",
+        "type": "challenge",
+        "iconPath": "/assets/icons/dinosaur.png"
+      },
+      {
+        "id": 8,
+        "question": "På vandrarhemmet några meter bort från Rex Pizzeria bodde en av Sveriges värsta serievåldtäktsman. Vem var våldtäktsmannen?",
+        "options": [
+          "Södermannen",
+          "Hagamannen",
+          "Spökmannen",
+          "Nytorgsmannen"
+        ],
+        "iconPath": "/assets/icons/person.png"
+      }
     ]
   },
   {
-    "id": "fregatt_4",
-    "question": "Vilket år blev Fregatten, Fregatten igen?",
-    "type": "Knowledge",
-    "icon": "fregatt_image",
-    "answer": "1991"
-  },
-  {
-    "id": "fregatt_5",
-    "question": "Ägaren av Fregatten öppnar puben på förmiddagen och har passbyte kl 17:00. Från vilken stad kommer ägaren ifrån? Från vilken stad kommer han som byter av ägaren ifrån?",
-    "type": "Bonus/Social",
-    "icon": "teddy_photo",
-    "answers": [
-      "Warzawa - Teddy är härifrån",
-      "Łódž - Mannen som byter av Teddy är härifrån"
+    "pubID": 3,
+    "questions": [
+      {
+        "id": 1,
+        "question": "Gå till baren, säg att du är student och fråga om du får rabatt?",
+        "type": "challenge",
+        "iconPath": "/assets/icons/mecenat.png"
+      },
+      {
+        "id": 2,
+        "question": "Vad står det skrivet i pratbubblorna på bilden?",
+        "type": "question",
+        "iconPath": "/assets/icons/drawnBeer.png"
+      },
+      {
+        "id": 3,
+        "question": "Från vilken tv-serie kommer \"Gabba Goo!\"-teckningen?",
+        "type": "question",
+        "options": [
+          "The Sopranos och The Office",
+          "Last of Us och Dora the Explorer",
+          "The Walking Dead och Solsidan",
+          "The Bear och Keeping Up With the Kardashians"
+        ],
+        "iconPath": "/assets/icons/tv.png"
+      },
+      {
+        "id": 4,
+        "question": "Vad innehåller drinken som delar efternamn med adjunkten Johannes?",
+        "type": "question",
+        "iconPath": "/assets/icons/johannes.png"
+      },
+      {
+        "id": 5,
+        "question": "Starta leken med handrörelser...",
+        "type": "challenge",
+        "iconPath": "/assets/icons/peace.png"
+      },
+      {
+        "id": 6,
+        "question": "Vad användes Värnhem för under första världskriget?",
+        "type": "question",
+        "options": [
+          "Gård för uppfödning av nötkreatur",
+          "Odlingsplats",
+          "Industriområde",
+          "Sommarparadis för lediga soldater"
+        ],
+        "iconPath": "/assets/icons/varnhem.png"
+      }
     ]
   },
   {
-    "id": "fregatt_6",
-    "question": "Fregatten blir omnämnd av en stor svensk artist i en av sina låtar. Vem är artisten?",
-    "type": "Entertainment",
-    "icon": "music_notes",
-    "options": [
-      "Håkan Hellström",
-      "Seinabo Sey",
-      "Joakim Thåström",
-      "Kal P. Dal"
-    ]
-  },
-  {
-    "id": "fregatt_7",
-    "question": "Vad ljuder på Fregatten en kvart innan stängning?",
-    "type": "Entertainment",
-    "icon": "close_sign",
-    "answer": "Skeppsklocka"
-  },
-  {
-    "id": "fregatt_8",
-    "question": "Vilken öl säljer bäst på Fregatten? Och var kommer denna ifrån?",
-    "type": "Social/General Knowledge",
-    "icon": "beer_bottle",
-    "answer": "Zywiec, Polen."
-  },
-  {
-    "id": "fregatt_9",
-    "question": "Det finns en bild som visar baren när Fregatten först öppnades. Vilket år är bilden ifrån?",
-    "type": "Historical",
-    "icon": "frimark_image",
-    "answer": "1963"
-  },
-  {
-    "id": "fregatt_10",
-    "question": "Nära baren finns det en samling på olika sorters halsdukar. Hur många av dessa är polska?",
-    "type": "Social/Entertainment",
-    "icon": "scarf",
-    "answer": "De första fyra halsdukar från vänster är polska"
-  },
-  {
-    "id": "fregatt_11",
-    "question": "Var föredrar stammisen Kent sitta och njuta av eftermiddagen?",
-    "type": "Social",
-    "icon": "star",
-    "answer": "Vid baren åt vänster - nära rodern - bredvid fönstret vid baren"
-  },
-  {
-    "id": "fregatt_12",
-    "question": "Kan ni hitta den populära skate-Grisen teckning här?",
-    "type": "Art",
-    "icon": "skate_grisen",
-    "answer": "JA"
-  },
-  {
-    "id": "fregatt_13",
-    "question": "En gång i tiden var Värnhemstorget en mötesplats för spårvagnslinjerna. I vilket år ersattes spårvagnarna av bussar?",
-    "type": "Historical",
-    "icon": "tram",
-    "options": [
-      "1958",
-      "1971",
-      "1964"
-    ]
-  },
-  {
-    "id": "fregatt_14",
-    "question": "Teddy har tre hattar som ligger uppe i vitrinskåpet vid baren. Vems hatt var den vita hatten och vems hatt var den äldsta?",
-    "type": "Historical",
-    "icon": "white_hat",
-    "answer": "Den vita hörde till en svensk marin och den äldsta hörde till en polsk soldat från andra världskriget."
-  },
-  
-  {
-    "id": "rex_1",
-    "question": "Vad heter Rex Pizzerians ägare och hans fru?",
-    "type": "Social",
-    "icon": "owner_image",
-    "answer": "Houshang och Nurije"
-  },
-  {
-    "id": "rex_2",
-    "question": "Rex Pizzeria är arrangörer för många olika evenemang. Men, vet ni vilket evenemang som är ägarnas favorit?",
-    "type": "Social",
-    "icon": "microphone",
-    "answer": "Stand-up comedy eller Quiz eller Teater"
-  },
-  {
-    "id": "rex_3",
-    "question": "Innan Rex Pizzeria var så stort som det är nu så bedrevs det andra verksamheter i nuvarande lokaler. Vad var det för verksamheter?",
-    "type": "General Knowledge",
-    "icon": "frimark_image",
-    "options": [
-      "En bokaffär & en skivaffär",
-      "En skoaffär & en klädaffär",
-      "En frisörsalong & ett bageri"
-    ]
-  },
-  {
-    "id": "rex_4",
-    "question": "När man beställer en öl i baren så är det lätt att ögonen vandrar iväg mot alla roliga föremål som man möts av. Bakom baren finns ett signerat fotografi föreställande en gammal stor fotbollsspelare som är stammis på Rex. Vad heter fotbollsspelaren och vilket lag spelade han för i denna bild?",
-    "type": "Knowledge",
-    "icon": "frimark_image",
-    "answer": "Robert Prytz, Hellas Verona."
-  },
-  {
-    "id": "rex_5",
-    "question": "Vem valde att ha en dinosaurie som den nya loggan för Rex Pizzerian?",
-    "type": "Social",
-    "icon": "dinosaur",
-    "options": [
-      "Kunderna",
-      "Houshang och Nurije",
-      "Ett av Houshang och Nurijes barn",
-      "Anton Magnusson"
-    ]
-  },
-  {
-    "id": "rex_6",
-    "question": "Vad var Nobeltorget under 70-talet?",
-    "type": "Historical",
-    "icon": "nobeltorget_image",
-    "options": [
-      "En skatepark",
-      "En plaskdamm",
-      "En grönyta/park"
-    ]
-  },
-  {
-    "id": "rex_7",
-    "question": "Vilken öl är ägarens Houshangs favorit?",
-    "type": "Social",
-    "icon": "beer_bottle",
-    "answer": "Tuborg Classic"
-  },
-  {
-    "id": "rex_8",
-    "question": "Stammisen Sandra berättade för er att tåget åkte på Nobelvägen förr i tiden. Vilket år slutade tåget åka på denna väg?",
-    "type": "Historical",
-    "icon": "train",
-    "options": [
-      "1940",
-      "1950",
-      "1960"
-    ]
-  },
-  {
-    "id": "rex_9",
-    "question": "Hur stor var Rex Pizzeria när den öppnades 1999?",
-    "type": "General Knowledge",
-    "icon": "question_mark",
-    "options": [
-      "Den bestod av baren- och pizzeriadelen",
-      "Den bestod av pizzeriadelen",
-      "Den bestod av baren-, biljard- och pizzeriadelen"
-    ]
-  },
-  {
-    "id": "rex_10",
-    "question": "Vilket Malmöband hade sin debutspelning i Rex källare?",
-    "type": "General Knowledge",
-    "icon": "band_image",
-    "options": [
-      "Neon Chorus",
-      "Bob Frank & The Lemon Curds",
-      "Plain Chachalaca"
+    "pubID": 4,
+    "questions": [
+      {
+        "id": 1,
+        "question": "Vad heter fregattmodellen som finns här?",
+        "type": "question",
+        "iconPath": "/assets/icons/fregatt.png"
+      },
+      {
+        "id": 2,
+        "question": "Gå till baren och köp bartenders förslag på en dryck",
+        "type": "challenge",
+        "iconPath": "/assets/icons/secretDrink.png"
+      },
+      {
+        "id": 3,
+        "question": "Fregatten blir omnämnd av en stor svensk artist. Vem?",
+        "type": "question",
+        "options": [
+          "Håkan Hellström",
+          "Seinabo Sey",
+          "Joakim Thåström",
+          "Kal P. Dal"
+        ],
+        "iconPath": "/assets/icons/note.png"
+      },
+      {
+        "id": 4,
+        "question": "Vad ljuder på Fregatten en kvart innan stängning?",
+        "type": "question",
+        "options": [
+          "Skeppsklocka",
+          "Väckarklocka",
+          "Han bakom baren skriker 'ut med er'",
+          "Förinspelad fartygstuta"
+        ],
+        "iconPath": "/assets/icons/sound.png"
+      },
+      {
+        "id": 5,
+        "question": "Namnspelet – säg en öl som börjar på sista bokstaven i föregående öl",
+        "type": "challenge",
+        "iconPath": "/assets/icons/beer.png"
+      },
+      {
+        "id": 6,
+        "question": "Hur många klubbhalsdukar nära baren är polska?",
+        "type": "question",
+        "iconPath": "/assets/icons/scarf.png"
+      },
+      {
+        "id": 7,
+        "question": "Var föredrar stammisen Kent sitta?",
+        "type": "question",
+        "options": [
+          "På toa",
+          "Vid baren, nära rodret",
+          "I Fregattens källare",
+          "Hemma"
+        ],
+        "iconPath": "/assets/icons/barStool.png"
+      },
+      {
+        "id": 8,
+        "question": "Ta en selfie med skate-Grisen och ladda upp denna",
+        "type": "challenge",
+        "iconPath": "/assets/icons/skategris.png"
+      }
     ]
   }
 ]

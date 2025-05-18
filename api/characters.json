@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name":"Bosse 'Suell' Jönsson",
+        "name":"Bosse",
         "age": 40,
         "occupation": "Socialsekreterare",
         "adress": "",
@@ -9,18 +9,18 @@
         "monologue": [
             "Allt förändras. Volym blev Scandwich, Sapla är numera Krøl och Källan är Ramen… Men det här stället, det ska ingen röra. Det är den sista hederliga puben på Möllan – öl, gemenskap och fotboll. Stället har funnits här som ölhall redan på 1800-talet och dagens namn kan ses som en hyllning till de gamla ölhallarna.",
 
-            "Detta är mitt andra hem. Farfar satt här efter jobbet på RGA (Ryska Gummifabriken AB) som låg på barkgatan. Dessutom brukade jag och farsan ta en parisare på Frasses, runt hörnet bara.",
+            "Detta är mitt andra hem. Farfar satt här efter jobbet på RGA som låg på barkgatan. Dessutom brukade jag och farsan ta en parisare på Frasses, runt hörnet bara.",
             
             "Här dricker jag och mina stammiskompisar Norrlands och ser på MFF, i MFF-rummet. Det här är mer än en pub. Det är ett minne, ett motstånd, ett hem. Välkommna till Möllans enda riktiga pub."
         ],
         "pub": 1,
         "avatarPath": "/assets/avatars/bosse.PNG",
         "audioPath": "/assets/audio/bosseMonologue.wav",
-        "animationPath": "/assets/animations/bosse"
+        "animationPath": "/assets/animations/bosseAnimation.mp4"
     },
     {
         "id": 2,
-        "name":"Sandra Karlsson",
+        "name":"Sandra",
         "age": 32,
         "occupation": "Grundskolelärare",
         "adress": "Sorgenfrivägen 37A, Östra Sorgenfri",
@@ -38,11 +38,11 @@
         "pub": 2,
         "avatarPath": "/assets/avatars/sandra.PNG",
         "audioPath": "/assets/audio/sandraMonologue.wav",
-        "animationPath": "/assets/animations/kowalski"
+        "animationPath": "/assets/animations/sandraAni.webm"
     },
     {
         "id": 3,
-        "name": "Sebbe Andersson",
+        "name": "Sebbe-Sabrina",
         "age": 21,
         "occupation": "Student, pluggar till byggingenjör på Malmö Universitet.",
         "adress": "Rönnblomsgatan 11, Värnhem ",
@@ -55,11 +55,11 @@
         "pub": 3,
         "avatarPath": "/assets/avatars/sebbe.PNG",
         "audioPath": "/assets/audio/sebbeMonologue.wav",
-        "animationPath": "/assets/animations/kowalski"
+        "animationPath": "/assets/animations/sebbeAnimation.mp4"
     },
     {
         "id": 4,
-        "name":"Janusz Kowalski",
+        "name":"Kowalski",
         "age": 70,
         "occupation": "Pensionerad, f.d. civilingenjör på Kockums",
         "adress":"Östra Förstadsgatan 16",
@@ -74,6 +74,6 @@
         "pub": 4,
         "avatarPath": "/assets/avatars/kowalski.PNG",
         "audioPath": "/assets/audio/kowalskiMonologue.wav",
-        "animationPath": "/assets/animations/kowalski"
+        "animationPath": "/assets/animations/kowalskiAnimation.mp4"
     }
 ] 
