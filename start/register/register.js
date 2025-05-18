@@ -12,22 +12,40 @@ function renderRegister(parentID) {
     /* const header = renderHeader(parentID);
     document.querySelector(parentID).appendChild(header); */
 
-    const title = document.createElement('h1');
-    document.querySelector(parentID).appendChild(title);
-    title.innerText = 'Registrera dig';
-    title.id = 'title';
+    const background = document.createElement('img');
+    document.querySelector(parentID).append(background);
+    background.id = 'backgroundImg';
+    background.src = '../assets/bgMap.png';
+
+    const logotypeDiv = document.createElement('div');
+    document.querySelector(parentID).append(logotypeDiv);
+    logotypeDiv.id = 'logotypeDiv';
+
+    const beer = document.createElement('img');
+    beer.id = 'beer';
+    logotypeDiv.append(beer);
+    beer.src = '../../assets/beer.png';
+
+    const logo = document.createElement('img');
+    logo.id = 'logotypeText';
+    logotypeDiv.append(logo);
+    logo.src = '../../assets/logotype.png';
+
+    const registerText = document.createElement('h3');
+    registerText.id = 'registerTxt';
+    document.querySelector(parentID).append(registerText);
+    registerText.textContent = 'Registrera dig';
 
     const inputDiv = document.createElement('div');
     document.querySelector(parentID).appendChild(inputDiv);
     inputDiv.id = 'inputDiv';
 
     inputDiv.innerHTML = `
-        <label for='namn'>Namn</label>
-        <input type='text' name='namn' id='name'/>
-        <label for='lösenord'>Lösenord</label>
-        <input type='password' name='lösenord' id='password'/>
-        <label for='confLösenord'>Bekräfta lösenord</label>
-        <input type='password' name='confLösenord' id='confPassword'/>
+        <input type='text' name='username' id='username' placeholder='Användarnamn'/>
+        <img id='userIcon' class='inputIcon' src=../assets/icons/user.svg>
+        <input type='password' name='lösenord' id='password' placeholder='Lösenord'/>
+        <img id='lockIcon' class='inputIcon' src=../assets/icons/lock.svg>
+        <input type='password' name='confLösenord' id='confPassword' placeholder='Bekräfta lösenord'/>
     `;
 
     const button = document.createElement('button');
