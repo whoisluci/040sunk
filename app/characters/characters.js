@@ -64,7 +64,7 @@ function renderCharDialogue (parentID, charName) {
     charAnimation.setAttribute('type', 'video/mov')
     charAnimation.src = chosenChar.animationPath;
     document.querySelector(parentID).append(charAnimation);
-    charAnimation.setAttribute('controls', 'false');
+    charAnimation.controls = false;
     charAnimation.loop = true;
     charAnimation.autoplay = true;
     charAnimation.playsInline = true;
