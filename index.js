@@ -2,7 +2,7 @@ import { PubSub } from "./utils/pubSub.js";
 import * as renderLandingPage from "./start/start.js";
 import { renderUserTeams } from './app/teams.js';
 import * as renderWaitingRoom from "./app/waitingRoom.js";
-import * as renderCharacters from './app/characters.js'
+import * as renderCharacters from './app/characters/characters.js'
 import * as renderStartGame from './app/startGame.js';
 
 export const STATE = {
@@ -21,7 +21,7 @@ export const token = sessionStorage.getItem("token");
 
 
 globalThis.addEventListener("load", async () => {
-    STATE.socket = new WebSocket("ws://localhost:8888");
+    STATE.socket = new WebSocket("wss://sunk040.deno.dev");
 console.log(STATE);
 
     STATE.socket.addEventListener("open", async (event) => {
