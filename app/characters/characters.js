@@ -67,6 +67,7 @@ function renderCharDialogue (parentID, charName) {
     charAnimation.setAttribute('controls', 'false');
     charAnimation.loop = true;
     charAnimation.autoplay = true;
+    charAnimation.playsInline = true;
 
     const textbox = document.createElement('div');
     textbox.id = 'textbox';
