@@ -1,5 +1,6 @@
-import { STATE } from "../index.js";
-import { PubSub } from "../utils/pubSub.js";
+import { STATE } from "../../index.js";
+import { PubSub } from "../../utils/pubSub.js";
+import * as renderPub from "../pub.js";
 
 PubSub.subscribe({
     event: 'renderChars',
@@ -58,15 +59,14 @@ function renderCharDialogue (parentID, charName) {
     
     document.querySelector(parentID).style.backgroundImage = `url(${pub.characterBG}`;
 
-    // const background = document.createElement('img');
-    // background.id = 'background';
-    // background.src = pub.characterBG;
-    // document.querySelector(parentID).append(background);
-
-    const charAnimation = document.createElement('img');
+    const charAnimation = document.createElement('video');
     charAnimation.id = 'charAnimation';
-    charAnimation.src = chosenChar.avatarPath; /* ändra till animation */
+    charAnimation.setAttribute('type', 'video/mov')
+    charAnimation.src = chosenChar.animationPath;
     document.querySelector(parentID).append(charAnimation);
+    charAnimation.setAttribute('controls', 'false');
+    charAnimation.loop = true;
+    charAnimation.autoplay = true;
 
     const textbox = document.createElement('div');
     textbox.id = 'textbox';
@@ -85,8 +85,38 @@ function renderCharDialogue (parentID, charName) {
 
     const trigger = setTimeout(() => {
         audio.play();
-        
         typeLine(currentLine, charIndex, monologue);
+    });
+
+    audio.addEventListener('ended', () => {
+        textbox.innerHTML = ``;
+        charAnimation.loop = false;
+        charAnimation.pause = true;
+        
+        const question = document.createElement('h5');
+        textbox.append(question);
+        question.id = 'question';
+        question.textContent = `Vilken pub pratade ${chosenChar.name} om?`;
+
+        const input = document.createElement('input');
+        input.placeholder = 'Svar';
+        textbox.append(input);
+
+        const bttn = document.createElement('button');
+        bttn.textContent = 'OK';
+        bttn.id = 'button';
+        textbox.append(bttn);
+
+        bttn.addEventListener('click', () => {
+            const answer = input.value;
+
+            if (answer.localeCompare(pub.name)) {
+               PubSub.publish({
+                event: 'renderPub',
+                detail: pub
+               });
+            }
+        });
     });
 }
 
