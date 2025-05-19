@@ -6,11 +6,12 @@
         "id": 1,
         "question": "Gå till baren, köp bartenders rekommendation på en cocktail eller mocktail",
         "type": "challenge",
-        "iconPath": "/assets/icons/drink.png"
+        "iconPath": "/assets/icons/drink.png",
+        "answered": false
       },
       {
         "id": 2,
-        "question": "Vad innehåller den skevt namngivna drinken, Orgasm?",
+        "question": "Vad innehåller den skevt namngivna drinken: orgasm?",
         "type": "question",
         "options": [
           "Mynta, vit rom, socker, lime och sodavatten.",
@@ -18,7 +19,8 @@
           "Vodka, Kahlua, Baileys och Mjölk",
           "Vodka, Kaffe, Coca Cola, Grädde och Gammeldansk"
         ],
-        "iconPath": "/assets/icons/orgasm.png"
+        "iconPath": "/assets/icons/orgasm.png",
+        "answered": false
       },
       {
         "id": 3,
@@ -30,19 +32,22 @@
           "Ingvar Svahn",
           "Malin Baryard"
         ],
-        "iconPath": "/assets/icons/malmoson.png"
+        "iconPath": "/assets/icons/malmoson.png",
+        "answered": false
       },
       {
         "id": 4,
         "question": "Hur många spelare har signerat MFF-tröja som hänger vid böckerna?",
-        "type": "questions",
-        "iconPath": "/assets/icons/mff.png"
+        "type": "question",
+        "iconPath": "/assets/icons/mff.png",
+        "answered": false
       },
       {
         "id": 5,
         "question": "Spela pekleken...",
         "type": "challenge",
-        "iconPath": "/assets/icons/pointingFinger.png"
+        "iconPath": "/assets/icons/pointingFinger.png",
+        "answered": false
       },
       {
         "id": 6,
@@ -54,20 +59,22 @@
           "Stadsbiblioteket",
           "Bosse"
         ],
-        "iconPath": "/assets/icons/books.png"
+        "iconPath": "/assets/icons/books.png",
+        "answered": false
       },
       {
         "id": 7,
         "question": "Ta en selfie med en bok från bokhyllan och ladda upp den på spelets webbplats.",
         "type": "challenge",
-        "iconPath": "/assets/icons/camera.png"
+        "iconPath": "/assets/icons/camera.png",
+        "answered": false
       },
       {
         "id": 8,
         "question": "Vad heter statyn som symboliserar arbetarrörelsens historia och kamp på Möllevångstorget?",
         "type": "question",
-        "iconPath": "/assets/icons/statue.png"
-
+        "iconPath": "/assets/icons/statue.png",
+        "answered": false
       },
       {
         "id": 9,
@@ -79,9 +86,12 @@
           "Rökeri & Grill AB",
           "Räkmackor och annat Gott AB"
         ],
-        "iconPath": "/assets/icons/question.png"
+        "iconPath": "/assets/icons/question.png",
+        "answered": false
       }
-    ]
+    ],
+    "totalAnswered": 0,
+    "isDone": false
   },
   {
     "pubID": 2,
@@ -90,7 +100,8 @@
         "id": 1,
         "question": "Kör biljard – vinnaren bestämmer valfri bestraffning mot förloraren",
         "type": "challenge",
-        "iconPath": "/assets/icons/poolBall.png"
+        "iconPath": "/assets/icons/poolBall.png",
+        "answered": false
       },
       {
         "id": 2,
@@ -102,13 +113,15 @@
           "En frisörsalong & ett bageri",
           "En bingohall & en thaimassage"
         ],
-        "iconPath": "/assets/icons/rex.png"
+        "iconPath": "/assets/icons/rex.png",
+        "answered": false
       },
       {
         "id": 3,
         "question": "Vad heter fotbollsspelaren på fotot bakom baren?",
         "type": "question",
-        "iconPath": "/assets/icons/rexPhoto.png"
+        "iconPath": "/assets/icons/rexPhoto.png",
+        "answered": false
       },
       {
         "id": 4,
@@ -120,38 +133,46 @@
           "En hockeyrink",
           "En frizon för narkotikabrukare"
         ],
-        "iconPath": "/assets/icons/nobel.png"
+        "iconPath": "/assets/icons/nobel.png",
+        "answered": false
       },
       {
         "id": 5,
-        "question": "Spela '21'-leken enligt instruktionerna...",
+        "question": "Tillsammans med andra, räkna till 21. Men! 7 och 17 har bytt plats, säg rätt eller åk ut. Personen som säger 21 får lägga till en ny regel. Bli den sista som står kvar och ge någon en valfri bestraffning.",
         "type": "challenge",
-        "iconPath": "/assets/icons/21.png"
+        "iconPath": "/assets/icons/21.png",
+        "answered": false
       },
       {
         "id": 6,
         "question": "Vad står det på den andra skylten vid baren nära pizzadelen?",
         "type": "question",
-        "iconPath": "/assets/icons/licensePlate.png"
+        "iconPath": "/assets/icons/licensePlate.png",
+        "answered": false
       },
       {
         "id": 7,
         "question": "Ta en selfie med dinosauriemålningen i bakgrunden och ladda upp den.",
         "type": "challenge",
-        "iconPath": "/assets/icons/dinosaur.png"
+        "iconPath": "/assets/icons/dinosaur.png",
+        "answered": false
       },
       {
         "id": 8,
         "question": "På vandrarhemmet några meter bort från Rex Pizzeria bodde en av Sveriges värsta serievåldtäktsman. Vem var våldtäktsmannen?",
+        "type": "question",
         "options": [
           "Södermannen",
           "Hagamannen",
           "Spökmannen",
           "Nytorgsmannen"
         ],
-        "iconPath": "/assets/icons/person.png"
+        "iconPath": "/assets/icons/person.png",
+        "answered": false
       }
-    ]
+    ],
+    "totalAnswered": 0,
+    "isDone": false
   },
   {
     "pubID": 3,
@@ -160,13 +181,15 @@
         "id": 1,
         "question": "Gå till baren, säg att du är student och fråga om du får rabatt?",
         "type": "challenge",
-        "iconPath": "/assets/icons/mecenat.png"
+        "iconPath": "/assets/icons/mecenat.png",
+        "answered": false
       },
       {
         "id": 2,
         "question": "Vad står det skrivet i pratbubblorna på bilden?",
         "type": "question",
-        "iconPath": "/assets/icons/drawnBeer.png"
+        "iconPath": "/assets/icons/drawnBeer.png",
+        "answered": false
       },
       {
         "id": 3,
@@ -178,19 +201,22 @@
           "The Walking Dead och Solsidan",
           "The Bear och Keeping Up With the Kardashians"
         ],
-        "iconPath": "/assets/icons/tv.png"
+        "iconPath": "/assets/icons/tv.png",
+        "answered": false
       },
       {
         "id": 4,
         "question": "Vad innehåller drinken som delar efternamn med adjunkten Johannes?",
         "type": "question",
-        "iconPath": "/assets/icons/johannes.png"
+        "iconPath": "/assets/icons/johannes.png",
+        "answered": false
       },
       {
         "id": 5,
         "question": "Starta leken med handrörelser...",
         "type": "challenge",
-        "iconPath": "/assets/icons/peace.png"
+        "iconPath": "/assets/icons/peace.png",
+        "answered": false
       },
       {
         "id": 6,
@@ -202,9 +228,12 @@
           "Industriområde",
           "Sommarparadis för lediga soldater"
         ],
-        "iconPath": "/assets/icons/varnhem.png"
+        "iconPath": "/assets/icons/varnhem.png",
+        "answered": false
       }
-    ]
+    ],
+    "totalAnswered": 0,
+    "isDone": false
   },
   {
     "pubID": 4,
@@ -213,13 +242,15 @@
         "id": 1,
         "question": "Vad heter fregattmodellen som finns här?",
         "type": "question",
-        "iconPath": "/assets/icons/fregatt.png"
+        "iconPath": "/assets/icons/fregatt.png",
+        "answered": false
       },
       {
         "id": 2,
         "question": "Gå till baren och köp bartenders förslag på en dryck",
         "type": "challenge",
-        "iconPath": "/assets/icons/secretDrink.png"
+        "iconPath": "/assets/icons/secretDrink.png",
+        "answered": false
       },
       {
         "id": 3,
@@ -231,7 +262,8 @@
           "Joakim Thåström",
           "Kal P. Dal"
         ],
-        "iconPath": "/assets/icons/note.png"
+        "iconPath": "/assets/icons/note.png",
+        "answered": false
       },
       {
         "id": 4,
@@ -243,22 +275,18 @@
           "Han bakom baren skriker 'ut med er'",
           "Förinspelad fartygstuta"
         ],
-        "iconPath": "/assets/icons/sound.png"
+        "iconPath": "/assets/icons/sound.png",
+        "answered": false
       },
       {
         "id": 5,
         "question": "Namnspelet – säg en öl som börjar på sista bokstaven i föregående öl",
         "type": "challenge",
-        "iconPath": "/assets/icons/beer.png"
+        "iconPath": "/assets/icons/beer.png",
+        "answered": false
       },
       {
         "id": 6,
-        "question": "Hur många klubbhalsdukar nära baren är polska?",
-        "type": "question",
-        "iconPath": "/assets/icons/scarf.png"
-      },
-      {
-        "id": 7,
         "question": "Var föredrar stammisen Kent sitta?",
         "type": "question",
         "options": [
@@ -267,14 +295,24 @@
           "I Fregattens källare",
           "Hemma"
         ],
-        "iconPath": "/assets/icons/barStool.png"
+        "iconPath": "/assets/icons/barStool.png",
+        "answered": false
+      },
+      {
+        "id": 7,
+        "question": "Ta en selfie med skate-Grisen och ladda upp denna",
+        "type": "challenge",
+        "iconPath": "/assets/icons/skategris.png",
+        "answered": false
       },
       {
         "id": 8,
-        "question": "Ta en selfie med skate-Grisen och ladda upp denna",
-        "type": "challenge",
-        "iconPath": "/assets/icons/skategris.png"
+        "question": "Nära baren finns det en samling klubbhalsdukar. Hur många av dessa är polska?",
+        "type": "question",
+        "iconPath": "/assets/icons/scarf.png"
       }
-    ]
+    ],
+    "totalAnswered": 0,
+    "isDone": false
   }
 ]

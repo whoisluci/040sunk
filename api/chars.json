@@ -16,7 +16,8 @@
         "pub": 1,
         "avatarPath": "/assets/avatars/bosse.PNG",
         "audioPath": "/assets/audio/bosseMonologue.wav",
-        "animationPath": "/assets/animations/bosseAnimation.mp4"
+        "animationPath": "/assets/animations/bosseAnimation.gif",
+        "locked": false
     },
     {
         "id": 2,
@@ -38,7 +39,8 @@
         "pub": 2,
         "avatarPath": "/assets/avatars/sandra.PNG",
         "audioPath": "/assets/audio/sandraMonologue.wav",
-        "animationPath": "/assets/animations/sandraAni.webm"
+        "animationPath": "/assets/animations/sandraAnimation.gif",
+        "locked": true
     },
     {
         "id": 3,
@@ -54,8 +56,9 @@
         ],
         "pub": 3,
         "avatarPath": "/assets/avatars/sebbe.PNG",
-        "audioPath": "/assets/audio/sebbeMonologue.wav",
-        "animationPath": "/assets/animations/sebbeAnimation.mp4"
+        "audioPath": "/assets/audio/sebbe-sabrinaMonologue.wav",
+        "animationPath": "/assets/animations/sebbeAnimation.gif",
+        "locked": true
     },
     {
         "id": 4,
@@ -74,6 +77,7 @@
         "pub": 4,
         "avatarPath": "/assets/avatars/kowalski.PNG",
         "audioPath": "/assets/audio/kowalskiMonologue.wav",
-        "animationPath": "/assets/animations/kowalskiAnimation.mp4"
+        "animationPath": "/assets/animations/kowalskiAnimation.gif",
+        "locked": true
     }
 ] 

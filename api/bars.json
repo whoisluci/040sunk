@@ -1,28 +1,28 @@
 [
     {
         "id": 1,
-        "namn": "Ölkaféet",
+        "name": "Ölkaféet",
         "location": "Södra Skolgatan 43",
         "characterBG": "/assets/barPics/olkafeet.jpg",
         "gameboardBG": "/assets/barPics/olkafeetWideAlt2.jpg"
     },
     {
         "id": 2,
-        "namn": "Rex Pizzeria",
+        "name": "Rex Pizzeria",
         "location": "Nobelvägen 107",
         "characterBG": "/assets/barPics/rexInside.jpg",
         "gameboardBG": "/assets/barPics/rexBarWide.jpg"
     },
     {
         "id": 3,
-        "namn": "Family Pub",
+        "name": "Family Pub",
         "location": "Sallerupsvägen 12",
-        "characterBG": "/assets/barPics/olkafeet.jpg",
+        "characterBG": "/assets/barPics/familyPub.jpg",
         "gameboardBG": "/assets/barPics/familyPub.jpg"
     },
     {
         "id": 4,
-        "namn": "Fregatten",
+        "name": "Fregatten",
         "location": "Föreningsgatan 87",
         "characterBG": "/assets/barPics/fregatten.jpg",
         "gameboardBG": "/assets/barPics/fregatten.jpg"

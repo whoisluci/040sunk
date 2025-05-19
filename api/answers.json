@@ -1,6 +1,6 @@
 [
     {
-        "barID": 1,
+        "pubID": 1,
         "questions": [
             {
                 "id": 2,
@@ -29,7 +29,7 @@
         ]
     },
     {
-        "barID": 2,
+        "pubID": 2,
         "questions": [
             {
                 "id": 2,
@@ -54,7 +54,7 @@
         ]
     },
     {
-        "barID": 3,
+        "pubID": 3,
         "questions": [
             {
                 "id": 2,
@@ -75,7 +75,7 @@
         ]
     },
     {
-        "barID": 4,
+        "pubID": 4,
         "questions": [
             {
                 "id": 1,
@@ -91,11 +91,11 @@
             },
             {
                 "id": 6,
-                "answer": 4
-            },
-            {
-                "id": 7,
                 "answer":  "Vid baren, nära rodret"
+            },
+            { 
+                "id": 8,
+                "answer": 4
             }
         ]
     }
