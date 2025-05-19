@@ -54,18 +54,18 @@ function renderRegister(parentID) {
     button.innerText = 'Registrera dig';
 
     button.addEventListener('click', () => {
-        let name = document.querySelector('#username').value;
+        let username = document.querySelector('#username').value;
         let password = document.querySelector('#password').value;
         let confPassword = document.querySelector('#confPassword').value;
 
-        console.log(password, confPassword)
+        console.log(username, password, confPassword)
 
         if (password === confPassword) {
             const data = {
                 event: 'register',
                 data: {
                     clientID: STATE.clientID,
-                    name: name,
+                    name: username,
                     password: password
                 }
             };

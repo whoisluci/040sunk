@@ -33,7 +33,7 @@ globalThis.addEventListener('beforeunload', () => {
 });
 
 globalThis.addEventListener("load", async () => {
-    STATE.socket = new WebSocket("wss://sunk040.deno.dev/");
+    STATE.socket = new WebSocket("ws://localhost:8888/");
 
     STATE.socket.addEventListener("open", async (event) => {
         STATE.client = event;
