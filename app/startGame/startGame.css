@@ -1,0 +1,15 @@
+#tagline {
+    color: #CF973B;
+    margin-top: 0;
+}
+
+#infoDiv {
+    margin: 0 10%;
+    font-size: 16px;
+    color: #ffeeb5;
+}
+
+#infoDiv > p {
+    margin-bottom: 10%;
+}
+
