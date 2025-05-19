@@ -247,9 +247,6 @@ async function handleCreateTeam(data) {
         gameStarted: false
     };
 
-    console.log(stateTeam);
-    
-
     STATE.teams.push(createdTeam);
 
     return createdTeam;
@@ -331,7 +328,7 @@ async function getTeamsFromUser(user) {
 }
 
 async function handleStartGame () {
-    const charactersJSON = await Deno.readTextFile('./api/characters.json');
+    const charactersJSON = await Deno.readTextFile('./api/chars.json');
     const charactersDB = await JSON.parse(charactersJSON);
 
     const challengesJSON = await Deno.readTextFile('./api/challenges.json');
@@ -344,14 +341,32 @@ async function handleStartGame () {
     
 
     return { data };
+}
 
-    for (let team of STATE.teams) {
-        if (team.id === teamID) {
-            team.gameStarted = true;
+async function handleCheckAnswer(data) {
+    const answersJSON = await Deno.readTextFile('./api/answers.json');
+    const answersDB = await JSON.parse(answersJSON);
 
-            return { team: team, characters: charactersDB, challenges: challengesDB, bars: barsDB };
+    const pubID = data.pubID;
+    const qID = data.qID;
+    const answer = data.answer;
+
+    console.log(answer);
+
+    for (let pub of answersDB) {
+        if (pub.pubID === pubID) {
+            for (let q of pub.questions) {
+                if (q.id === qID) {  
+                    if (answer == q.answer) {
+                        return true;
+                    }
+                }
+            }
         }
+
     }
+
+    return false;
 }
 
 /*                                      SERVER                                                 */
@@ -387,7 +402,6 @@ Deno.serve( {
             switch (msg.event) {
                 case "ping": {
                     console.log('[SERVER]: Recieved ping, sending pong...');
-                    console.log('hm???');
                     
                     send(socket, 'pong', {});
                     break;
@@ -460,8 +474,29 @@ Deno.serve( {
 
                     console.log(data);
                     
-
                     send(socket, 'loadGameData', data);
+                    break;
+                }
+
+                case 'checkAnswer': {
+                    const data = msg.data;
+                    const isCorrect = await handleCheckAnswer(data);
+
+                    console.log(isCorrect);
+                    
+
+                    if (isCorrect) {
+                        send(socket, 'checkAnswer', { pubID: data.pubID, qID: data.qID, isCorrect: isCorrect });
+                    } else {
+                        send(socket, 'checkAnswer', { pubID: data.pubID, qID: data.qID, isCorrect: isCorrect });
+                    }
+
+                    break;
+                }
+
+                case 'checkChallenge': {
+                    const data = msg.data;
+                    send(socket, 'checkChallenge', data);
                     break;
                 }
 
