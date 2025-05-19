@@ -1,9 +1,9 @@
-import { STATE } from "../index.js";
-import { token } from "../index.js";
-import { PubSub } from "../utils/pubSub.js";
-import * as createTeam from './create.js';
-import * as joinTeam from './join.js'
-import * as renderHeader from './global/header.js'
+import { STATE } from "../../index.js";
+import { token } from "../../index.js";
+import { PubSub } from "../../utils/pubSub.js";
+import * as createTeam from '../create.js';
+import * as joinTeam from '../join.js'
+import * as renderHeader from '../global/header.js'
 
 // PubSub.subscribe({
 //     event: 'renderTeamsPage',
