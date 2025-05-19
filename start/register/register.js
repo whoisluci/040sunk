@@ -54,7 +54,7 @@ function renderRegister(parentID) {
     button.innerText = 'Registrera dig';
 
     button.addEventListener('click', () => {
-        let name = document.querySelector('#name').value;
+        let name = document.querySelector('#username').value;
         let password = document.querySelector('#password').value;
         let confPassword = document.querySelector('#confPassword').value;
 
