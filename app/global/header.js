@@ -33,9 +33,9 @@ export function renderHeader (parentID) {
     });
 
     const logotype = document.createElement('img');
-    logotype.id = 'logotype';
+    logotype.id = 'miniLogo';
     header.append(logotype);
-    logotype.src = '';
+    logotype.src = '../../assets/miniLogo.svg';
 
     logotype.addEventListener('click', () => {
         PubSub.publish({
