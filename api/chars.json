@@ -16,7 +16,7 @@
         "pub": 1,
         "avatarPath": "/assets/avatars/bosse.PNG",
         "audioPath": "/assets/audio/bosseMonologue.wav",
-        "animationPath": "/assets/animations/bosseAnimation.gif",
+        "animationPath": "https://limewire.com/decrypt?downloadUrl=https%3A%2F%2Flimewire-filesharing-production.b61cdfd8cf17f52ddc020162e738eb5d.r2.cloudflarestorage.com%2Fbuckets%2F189ee4f4-553c-4af8-a6e0-6fca2945fa35%2Ff51c794f-6f56-4d84-b32e-397c83962ff5%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Date%3D20250519T221636Z%26X-Amz-SignedHeaders%3Dhost%26X-Amz-Credential%3Da1868571dfad6d4fe293ee5b945a0ad5%252F20250519%252Fauto%252Fs3%252Faws4_request%26X-Amz-Expires%3D14400%26X-Amz-Signature%3De399b340874f59518bc90e6064e384d99fae2571554953ef8581618967766de9&mediaType=image%2Fgif&decryptionSession=eyJhZXNKd2tHY20iOnsiYWVzS2V5VHlwZSI6IlNZTU1FVFJJQ19BRVMtR0NNX0tFWSIsImp3ayI6eyJhbGciOiJBMjU2R0NNIiwiZXh0Ijp0cnVlLCJrIjoiV1dPemxMS3UzSjJNS2ZoUWZhSUh5NU9yMjN0dlNNem9NMHBJNl9sTEMwTSIsImtleV9vcHMiOlsiZW5jcnlwdCIsImRlY3J5cHQiXSwia3R5Ijoib2N0In19LCJhZXNKd2tDdHIiOnsiYWVzS2V5VHlwZSI6IlNZTU1FVFJJQ19BRVMtQ1RSX0tFWSIsImp3ayI6eyJhbGciOiJBMjU2Q1RSIiwiZXh0Ijp0cnVlLCJrIjoiV1dPemxMS3UzSjJNS2ZoUWZhSUh5NU9yMjN0dlNNem9NMHBJNl9sTEMwTSIsImtleV9vcHMiOlsiZW5jcnlwdCIsImRlY3J5cHQiXSwia3R5Ijoib2N0In19fQ",
         "locked": false
     },
     {
@@ -39,7 +39,7 @@
         "pub": 2,
         "avatarPath": "/assets/avatars/sandra.PNG",
         "audioPath": "/assets/audio/sandraMonologue.wav",
-        "animationPath": "/assets/animations/sandraAnimation.gif",
+        "animationPath": "https://limewire.com/decrypt?downloadUrl=https%3A%2F%2Flimewire-filesharing-production.b61cdfd8cf17f52ddc020162e738eb5d.r2.cloudflarestorage.com%2Fbuckets%2F189ee4f4-553c-4af8-a6e0-6fca2945fa35%2Fb53cb1e8-4ff2-4b89-9b92-5ae9b20bb560%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Date%3D20250519T221609Z%26X-Amz-SignedHeaders%3Dhost%26X-Amz-Credential%3Da1868571dfad6d4fe293ee5b945a0ad5%252F20250519%252Fauto%252Fs3%252Faws4_request%26X-Amz-Expires%3D14400%26X-Amz-Signature%3Dd49391cdc5eaf34e47bb5620a5df58c836fe6d425892d8aaa502e9016e50754c&mediaType=image%2Fgif&decryptionSession=eyJhZXNKd2tHY20iOnsiYWVzS2V5VHlwZSI6IlNZTU1FVFJJQ19BRVMtR0NNX0tFWSIsImp3ayI6eyJhbGciOiJBMjU2R0NNIiwiZXh0Ijp0cnVlLCJrIjoiV1dPemxMS3UzSjJNS2ZoUWZhSUh5NU9yMjN0dlNNem9NMHBJNl9sTEMwTSIsImtleV9vcHMiOlsiZW5jcnlwdCIsImRlY3J5cHQiXSwia3R5Ijoib2N0In19LCJhZXNKd2tDdHIiOnsiYWVzS2V5VHlwZSI6IlNZTU1FVFJJQ19BRVMtQ1RSX0tFWSIsImp3ayI6eyJhbGciOiJBMjU2Q1RSIiwiZXh0Ijp0cnVlLCJrIjoiV1dPemxMS3UzSjJNS2ZoUWZhSUh5NU9yMjN0dlNNem9NMHBJNl9sTEMwTSIsImtleV9vcHMiOlsiZW5jcnlwdCIsImRlY3J5cHQiXSwia3R5Ijoib2N0In19fQ",
         "locked": true
     },
     {
@@ -57,7 +57,7 @@
         "pub": 3,
         "avatarPath": "/assets/avatars/sebbe.PNG",
         "audioPath": "/assets/audio/sebbe-sabrinaMonologue.wav",
-        "animationPath": "/assets/animations/sebbeAnimation.gif",
+        "animationPath": "https://limewire.com/decrypt?downloadUrl=https%3A%2F%2Flimewire-filesharing-production.b61cdfd8cf17f52ddc020162e738eb5d.r2.cloudflarestorage.com%2Fbuckets%2F189ee4f4-553c-4af8-a6e0-6fca2945fa35%2Faf485b9e-93cc-4e1e-90f9-07c36050cd25%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Date%3D20250519T221549Z%26X-Amz-SignedHeaders%3Dhost%26X-Amz-Credential%3Da1868571dfad6d4fe293ee5b945a0ad5%252F20250519%252Fauto%252Fs3%252Faws4_request%26X-Amz-Expires%3D14400%26X-Amz-Signature%3D1dc536de826525ab8a75a5696cb7c32b17c2f2c8134fa8b8ff46da7a69882332&mediaType=image%2Fgif&decryptionSession=eyJhZXNKd2tHY20iOnsiYWVzS2V5VHlwZSI6IlNZTU1FVFJJQ19BRVMtR0NNX0tFWSIsImp3ayI6eyJhbGciOiJBMjU2R0NNIiwiZXh0Ijp0cnVlLCJrIjoiV1dPemxMS3UzSjJNS2ZoUWZhSUh5NU9yMjN0dlNNem9NMHBJNl9sTEMwTSIsImtleV9vcHMiOlsiZW5jcnlwdCIsImRlY3J5cHQiXSwia3R5Ijoib2N0In19LCJhZXNKd2tDdHIiOnsiYWVzS2V5VHlwZSI6IlNZTU1FVFJJQ19BRVMtQ1RSX0tFWSIsImp3ayI6eyJhbGciOiJBMjU2Q1RSIiwiZXh0Ijp0cnVlLCJrIjoiV1dPemxMS3UzSjJNS2ZoUWZhSUh5NU9yMjN0dlNNem9NMHBJNl9sTEMwTSIsImtleV9vcHMiOlsiZW5jcnlwdCIsImRlY3J5cHQiXSwia3R5Ijoib2N0In19fQ",
         "locked": true
     },
     {
@@ -75,7 +75,7 @@
             "En gång gjorde de om stället till en pizzeria, det var inte uppskattat av min far. Witamy na fregacie!"
           ],
         "pub": 4,
-        "avatarPath": "/assets/avatars/kowalski.PNG",
+        "avatarPath": "https://limewire.com/decrypt?downloadUrl=https%3A%2F%2Flimewire-filesharing-production.b61cdfd8cf17f52ddc020162e738eb5d.r2.cloudflarestorage.com%2Fbuckets%2F189ee4f4-553c-4af8-a6e0-6fca2945fa35%2F712e84b6-fe54-4006-90d4-8c0817373a99%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Date%3D20250519T221426Z%26X-Amz-SignedHeaders%3Dhost%26X-Amz-Credential%3Da1868571dfad6d4fe293ee5b945a0ad5%252F20250519%252Fauto%252Fs3%252Faws4_request%26X-Amz-Expires%3D14400%26X-Amz-Signature%3Df6538d08f2f6bb709e95770480499f99c56faf396012856456d9c25df8562a94&mediaType=image%2Fgif&decryptionSession=eyJhZXNKd2tHY20iOnsiYWVzS2V5VHlwZSI6IlNZTU1FVFJJQ19BRVMtR0NNX0tFWSIsImp3ayI6eyJhbGciOiJBMjU2R0NNIiwiZXh0Ijp0cnVlLCJrIjoiV1dPemxMS3UzSjJNS2ZoUWZhSUh5NU9yMjN0dlNNem9NMHBJNl9sTEMwTSIsImtleV9vcHMiOlsiZW5jcnlwdCIsImRlY3J5cHQiXSwia3R5Ijoib2N0In19LCJhZXNKd2tDdHIiOnsiYWVzS2V5VHlwZSI6IlNZTU1FVFJJQ19BRVMtQ1RSX0tFWSIsImp3ayI6eyJhbGciOiJBMjU2Q1RSIiwiZXh0Ijp0cnVlLCJrIjoiV1dPemxMS3UzSjJNS2ZoUWZhSUh5NU9yMjN0dlNNem9NMHBJNl9sTEMwTSIsImtleV9vcHMiOlsiZW5jcnlwdCIsImRlY3J5cHQiXSwia3R5Ijoib2N0In19fQ",
         "audioPath": "/assets/audio/kowalskiMonologue.wav",
         "animationPath": "/assets/animations/kowalskiAnimation.gif",
         "locked": true
