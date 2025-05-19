@@ -1,6 +1,6 @@
 import { STATE } from "../../index.js";
 import { PubSub } from "../../utils/pubSub.js";
-import * as renderPub from "../pub.js";
+import * as renderPub from "../pubs/pub.js";
 
 PubSub.subscribe({
     event: 'renderChars',
@@ -10,6 +10,16 @@ PubSub.subscribe({
 async function renderCharSelection(parentID){
     console.log(`[CLIENT]: Game has started .`);
     document.querySelector(parentID).innerHTML = ``;
+
+    const header = PubSub.publish({
+        event: 'renderHeader',
+        detail: '#wrapper'
+    });
+
+    const background = document.createElement('img');
+    document.querySelector(parentID).append(background);
+    background.id = 'backgroundImg';
+    background.src = '../assets/bgMap.png';
 
     const headline = document.createElement('h2');
     headline.id = 'headline';
@@ -21,29 +31,57 @@ async function renderCharSelection(parentID){
     document.querySelector(parentID).append(charsDiv);
     
     for (let char of STATE.characters) {
+        const pubID = char.pub;
+        const pub = STATE.pubs.find((el) => el.id === pubID);
+
         const charDiv = document.createElement('div');
         charDiv.id = char.name;
         charsDiv.append(charDiv);
+        charDiv.classList.add('char');
+        
+        const charBG = document.createElement('img');
+        charBG.id = 'charBoxBG';
+        charBG.src = pub.characterBG;
+        charDiv.append(charBG);        
         
         const charImg = document.createElement('img');
         charImg.src = char.avatarPath;
         charDiv.append(charImg);
         charImg.style.height = '200px';
+        charImg.classList.add('charImg');
 
-        charDiv.classList.add('char');
+       const isDone = (STATE.challenges.find(p => p.pubID === pub.id)).isDone;
+        
 
-        /* kolla om någon progress finns */
-        /* om det finns, kolla vilka som e done */
+        if (char.locked) {
+            console.log(char);
+            
+            const overlay = document.createElement('div');
+            overlay.id = 'overlay';
+            charDiv.append(overlay);
 
-        charDiv.addEventListener("click", (event) => {
-            let chosenChar = event.currentTarget.id;
-            renderCharDialogue('#wrapper', chosenChar);
-        });
+            const lock = document.createElement('img');
+            lock.id = 'charLock';
+            lock.src = '../../assets/icons/charLock.svg';
+            overlay.append(lock);
+        } else {            
+            if (!isDone) {                
+                charDiv.addEventListener("click", (event) => {
+                    
+                    let chosenChar = event.currentTarget.id;
+                    renderCharDialogue('#wrapper', chosenChar);
+                });
+            }
+        }
     }
 }
 
 function renderCharDialogue (parentID, charName) {
     document.querySelector(parentID).innerHTML = ``;
+    const music = document.querySelector('#menuMusic');
+    if (music) {
+        music.remove();
+    }
 
     let chosenChar;
     for (let char of STATE.characters) {
@@ -56,18 +94,16 @@ function renderCharDialogue (parentID, charName) {
 
     const pubID = chosenChar.pub;
     const pub = STATE.pubs.find((el) => el.id === pubID);
-    
-    document.querySelector(parentID).style.backgroundImage = `url(${pub.characterBG}`;
 
-    const charAnimation = document.createElement('video');
+    const background = document.createElement('div');
+    background.id = 'charBG';
+    document.querySelector(parentID).append(background);
+    background.style.backgroundImage = `url(${pub.characterBG}`;
+
+    const charAnimation = document.createElement('img');
     charAnimation.id = 'charAnimation';
-    charAnimation.setAttribute('type', 'video/mov')
     charAnimation.src = chosenChar.animationPath;
     document.querySelector(parentID).append(charAnimation);
-    charAnimation.controls = false;
-    charAnimation.loop = true;
-    charAnimation.autoplay = true;
-    charAnimation.playsInline = true;
 
     const textbox = document.createElement('div');
     textbox.id = 'textbox';
@@ -90,17 +126,17 @@ function renderCharDialogue (parentID, charName) {
     });
 
     audio.addEventListener('ended', () => {
+        charAnimation.src = chosenChar.avatarPath;
         textbox.innerHTML = ``;
-        charAnimation.loop = false;
-        charAnimation.pause = true;
         
-        const question = document.createElement('h5');
+        const question = document.createElement('h3');
         textbox.append(question);
         question.id = 'question';
         question.textContent = `Vilken pub pratade ${chosenChar.name} om?`;
 
         const input = document.createElement('input');
         input.placeholder = 'Svar';
+        input.id = 'answerInput';
         textbox.append(input);
 
         const bttn = document.createElement('button');
@@ -109,13 +145,39 @@ function renderCharDialogue (parentID, charName) {
         textbox.append(bttn);
 
         bttn.addEventListener('click', () => {
-            const answer = input.value;
+            let userInput = input.value;
+            userInput = userInput.toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '');
 
-            if (answer.localeCompare(pub.name)) {
-               PubSub.publish({
-                event: 'renderPub',
-                detail: pub
-               });
+            let answer = pub.name;
+            answer = answer.toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '');
+
+            const isMatch = userInput.localeCompare(answer, 'sv', { sensitivity: 'base' });
+
+            if (isMatch === 0) {
+                textbox.innerHTML = ``; 
+
+                const text = document.createElement('h5');
+                text.id = 'congratulationsText';
+                textbox.append(text);
+                text.innerHTML = `Grattis, du klurade ut det! <br> Vi ses på ${pub.location}`;
+
+                const arrivedBttn = document.createElement('button');
+                textbox.append(arrivedBttn);
+                arrivedBttn.textContent = 'Jag har anlänt';
+
+                arrivedBttn.addEventListener('click', () => {
+                    PubSub.publish({
+                        event: 'renderPub',
+                        detail: pub
+                    });
+                });
+
+            } else {
+                question.textContent = 'Fel! Försök igen.';
             }
         });
     });
@@ -141,5 +203,5 @@ function typeLine(currentLine, charIndex, monologue) {
         currentLine++;
         setTimeout(typeLine(currentLine, charIndex, monologue), 1000);
       }
-    }, 80);
+    }, 55);
 }
