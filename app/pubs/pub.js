@@ -285,12 +285,11 @@ export function updatePopUp (data) {
 
             if (document.querySelector('#grid').childElementCount === 0) {
                 console.log('??');
-
-                localStorage.setItem('STATE', JSON.stringify(STATE));
                 
                 STATE.challenges.find(p => {
                     if (p.pubID === data.pID) {
                         p.isDone = true;
+                        localStorage.setItem('STATE', JSON.stringify(STATE));
                         renderBadgePopUp(p);
                     };
                 });
